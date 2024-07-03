@@ -85,6 +85,7 @@ class Course(Base):
         help_text=_("Загрузите изображение для иконки курса"),
         blank=True,
         null=True,
+        default="default_image.jpg",
     )
     rating = models.PositiveSmallIntegerField(
         blank=True,
@@ -107,6 +108,7 @@ class Course(Base):
         help_text=_("Загрузите изображение для фона курса"),
         blank=True,
         null=True,
+        default="default_image.jpg",
     )
 
     skills = models.ManyToManyField(
@@ -178,6 +180,7 @@ class Advantage(Base):
         help_text=_("Загрузите иконку преимущества"),
         blank=True,
         null=True,
+        default="default_image.jpg",
     )
     title = models.CharField(
         max_length=255,

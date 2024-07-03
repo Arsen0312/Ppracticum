@@ -9,22 +9,10 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class SkillListSerializer(SkillSerializer):
-    class Meta:
-        model = Skill
-        fields = ("id", "title")
-
-
 class AdvantageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advantage
         fields = "__all__"
-
-
-class AdvantageListSerializer(AdvantageSerializer):
-    class Meta:
-        model = Advantage
-        fields = ("id", "title")
 
 
 class CourseSerializer(serializers.ModelSerializer):

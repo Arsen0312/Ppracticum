@@ -12,7 +12,10 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(", ")
 DOCKER_STARTUP = config("DOCKER_STARTUP", cast=bool, default=False)
 
 
-MY_APPS = ["apps.academy"]
+MY_APPS = [
+    "apps.academy",
+    "apps.practicum",
+]
 
 THIRD_PARTY_APPS = [
     "corsheaders",
