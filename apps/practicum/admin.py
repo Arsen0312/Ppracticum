@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from apps.practicum.forms import FounderSectionForm
 from .models import Lead, Benefit, Review, FounderSection
 
 
@@ -49,12 +51,13 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(FounderSection)
 class FounderSectionAdmin(admin.ModelAdmin):
-    list_display = ("id", "image", "description", "created_at", "updated_at")
-    search_fields = ("description",)
+    form = FounderSectionForm
+    list_display = ("full_name", "description", "created_at", "updated_at", "id", "image")
+    search_fields = ("full_name", "description",)
     list_filter = ("created_at", "updated_at")
     readonly_fields = ("created_at", "updated_at")
     fieldsets = (
-        (None, {"fields": ("image", "description", "paragraphs")}),
+        (None, {"fields": ("full_name", "description", "paragraphs", "image",)}),
         (
             "Временные метки",
             {"fields": ("created_at", "updated_at"), "classes": ("collapse",)},

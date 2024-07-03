@@ -1,9 +1,12 @@
 from django.contrib import admin
+
+from apps.academy.forms import CourseValidateForm
 from .models import Course, Skill, Advantage
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
+    form = CourseValidateForm
     list_display = ("title", "duration", "rating", "created_at", "updated_at")
     list_filter = ("duration", "rating", "created_at")
     search_fields = ("title", "description", "purpose")

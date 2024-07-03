@@ -135,11 +135,17 @@ class FounderSection(Base):
     Модель раздела с информацией о основателях Практикума.
 
     Attributes:
+        full_name (CharField): Имя руководителя.
         image (ImageField): Изображение основателя.
         description (TextField): Описание раздела.
         paragraphs (TextField): Параграфы раздела.
     """
-
+    full_name = models.CharField(
+        max_length=255,
+        unique=True,
+        verbose_name=_("ФИО руководителя"),
+        help_text=_("Укажите ФИО руководителя"),
+    )
     image = models.ImageField(
         upload_to="founder_images/",
         verbose_name=_("Изображение основателя"),
@@ -156,13 +162,13 @@ class FounderSection(Base):
     )
     paragraphs = models.TextField(
         verbose_name=_("Параграфы раздела"),
-        help_text=_("Используйте '\\n' для разделения параграфов"),
+        help_text=_("Используйте красную строку для разделения параграфов (макс. 6)"),
         blank=True,
         null=True,
     )
 
     def __str__(self):
-        return f"Основатель №{self.id}"
+        return self.full_name
 
     class Meta:
         verbose_name = _("Руководитель")
