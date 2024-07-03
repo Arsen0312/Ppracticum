@@ -254,3 +254,7 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": True,
 }
+
+
+RETAILCRM_URL = config("RETAILCRM_URL", '')
+RETAILCRM_KEY = config("RETAILCRM_KEY", '')
