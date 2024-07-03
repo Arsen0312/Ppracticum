@@ -1,4 +1,4 @@
-// Practicum v.2.1 //
+// Practicum v.2.2 //
 
 // Таблица сотрудников
 Table Teacher {
@@ -121,6 +121,8 @@ Table FounderSection {
   app practicum // Связь с приложением Практикум
 
   image img // Изображение основателя
+  full_name char // Полное имя руководителя
+
   description text // Описание раздела
   paragraphs text [note: 'paragraph1 \n paragrap2 \n paragraph3'] // Параграфы раздела
 }

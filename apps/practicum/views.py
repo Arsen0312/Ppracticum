@@ -16,15 +16,15 @@ class LeadView(generics.CreateAPIView):
 
 
 class BenefitView(generics.ListAPIView):
-    queryset = Benefit.objects.all()
+    queryset = Benefit.objects.all()[:5]
     serializer_class = BenefitSerializer
 
 
 class FounderSectionView(generics.ListAPIView):
-    queryset = FounderSection.objects.all()
+    queryset = FounderSection.objects.all()[:1]
     serializer_class = FounderSectionSerializer
 
 
 class ReviewView(generics.ListAPIView):
-    queryset = Review.objects.all()
+    queryset = Review.objects.all()[:5]
     serializer_class = ReviewSerializer

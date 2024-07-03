@@ -16,3 +16,10 @@ class CourseListView(generics.ListAPIView):
 class CourseRetrieveView(generics.RetrieveAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+
+
+class TopCoursesView(generics.ListAPIView):
+    serializer_class = CourseListSerializer
+
+    def get_queryset(self):
+        return Course.objects.all().order_by("-rating")[:5]

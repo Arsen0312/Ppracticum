@@ -140,6 +140,7 @@ class FounderSection(Base):
         description (TextField): Описание раздела.
         paragraphs (TextField): Параграфы раздела.
     """
+
     full_name = models.CharField(
         max_length=255,
         unique=True,

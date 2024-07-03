@@ -174,14 +174,6 @@ class Advantage(Base):
         description (TextField): Описание преимущества.
     """
 
-    icon = models.ImageField(
-        upload_to="advantage_icons/",
-        verbose_name=_("Иконка преимущества"),
-        help_text=_("Загрузите иконку преимущества"),
-        blank=True,
-        null=True,
-        default="default_image.jpg",
-    )
     title = models.CharField(
         max_length=255,
         unique=True,
@@ -193,6 +185,14 @@ class Advantage(Base):
         null=True,
         verbose_name=_("Описание преимущества"),
         help_text=_("Введите описание преимущества"),
+    )
+    icon = models.ImageField(
+        upload_to="advantage_icons/",
+        verbose_name=_("Иконка преимущества"),
+        help_text=_("Загрузите иконку преимущества"),
+        blank=True,
+        null=True,
+        default="default_image.jpg",
     )
 
     def __str__(self):

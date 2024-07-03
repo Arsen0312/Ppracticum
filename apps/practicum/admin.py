@@ -26,7 +26,7 @@ class BenefitAdmin(admin.ModelAdmin):
     list_filter = ("created_at", "updated_at")
     readonly_fields = ("created_at", "updated_at")
     fieldsets = (
-        (None, {"fields": ("icon", "title", "description")}),
+        (None, {"fields": ("title", "description", "icon")}),
         (
             "Временные метки",
             {"fields": ("created_at", "updated_at"), "classes": ("collapse",)},
@@ -52,12 +52,32 @@ class ReviewAdmin(admin.ModelAdmin):
 @admin.register(FounderSection)
 class FounderSectionAdmin(admin.ModelAdmin):
     form = FounderSectionForm
-    list_display = ("full_name", "description", "created_at", "updated_at", "id", "image")
-    search_fields = ("full_name", "description",)
+    list_display = (
+        "full_name",
+        "description",
+        "created_at",
+        "updated_at",
+        "id",
+        "image",
+    )
+    search_fields = (
+        "full_name",
+        "description",
+    )
     list_filter = ("created_at", "updated_at")
     readonly_fields = ("created_at", "updated_at")
     fieldsets = (
-        (None, {"fields": ("full_name", "description", "paragraphs", "image",)}),
+        (
+            None,
+            {
+                "fields": (
+                    "full_name",
+                    "description",
+                    "paragraphs",
+                    "image",
+                )
+            },
+        ),
         (
             "Временные метки",
             {"fields": ("created_at", "updated_at"), "classes": ("collapse",)},
