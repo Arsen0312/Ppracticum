@@ -1,7 +1,7 @@
-// Practicum v.2 //
+// Practicum v.2.1 //
 
 // Таблица сотрудников
-Table Worker {
+Table Teacher {
   id int // Уникальный идентификатор сотрудника
   app account // Связь с приложением учетной записи
 
@@ -9,6 +9,7 @@ Table Worker {
   last_name char // Фамилия сотрудника
   patronymic char // Отчество сотрудника
 
+  rating int // Рейтинг курса
   avatar img // Аватар сотрудника (изображение)
   role char // Роль сотрудника в организации
 
@@ -48,6 +49,9 @@ Table Course {
   description text // Описание курса
   purpose text // Цель курса
   duration char // Продолжительность курса
+
+  icon img // Иконка курса
+  rating int // Рейтинг курса
   tag char // Метка курса
 
   trial_lesson url // Ссылка на пробное занятие
@@ -111,22 +115,6 @@ Table Review {
   body text // Текст отзыва
 }
 
-// Таблица раздела отзывов Практикума
-Table ReviewsSection {
-  id int // Уникальный идентификатор раздела отзывов
-  app practicum // Связь с приложением Практикум
-
-  reviews id [ref: <> Review.id] // Связь с отзывами в разделе
-}
-
-// Таблица раздела преимуществ Практикума
-Table BenefitsSection {
-  id int // Уникальный идентификатор раздела преимуществ
-  app practicum // Связь с приложением Практикум
-
-  benefits id [ref: <> Benefit.id] // Связь с преимуществами в разделе
-}
-
 // Таблица раздела с информацией о основателях Практикума
 Table FounderSection {
   id int // Уникальный идентификатор раздела с информацией о основателях
@@ -135,36 +123,6 @@ Table FounderSection {
   image img // Изображение основателя
   description text // Описание раздела
   paragraphs text [note: 'paragraph1 \n paragrap2 \n paragraph3'] // Параграфы раздела
-}
-
-// Таблица раздела с информацией о команде Практикума
-Table TeamSection {
-  id int // Уникальный идентификатор раздела с информацией о команде
-  app practicum // Связь с приложением Практикум
-
-  workers id [ref: <> Worker.id] // Связь с сотрудниками в разделе
-}
-
-// Таблица популярных курсов Практикума
-Table PopularSection {
-  id int // Уникальный идентификатор популярного раздела
-  app practicum // Связь с приложением Практикум
-
-  courses id [ref: <> Course.id] // Связь с популярными курсами в разделе
-}
-
-// Таблица раздела кнопок Практикума
-Table ButtonsSection {
-  id int // Уникальный идентификатор раздела кнопок
-  app practicum // Связь с приложением Практикум
-}
-
-// Таблица раздела услуг Практикума
-Table ServicesSection {
-  id int // Уникальный идентификатор раздела услуг
-  app practicum // Связь с приложением Практикум
-
-  services id [ref: <> Service.id] // Связь с услугами в разделе
 }
 
 
