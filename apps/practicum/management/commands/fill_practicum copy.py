@@ -7,4 +7,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         fill_practicum()
-        self.stdout.write(self.style.SUCCESS('Стандартные данные успешно созданы ("Практикум")'))
+        self.stdout.write(
+            self.style.SUCCESS('Стандартные данные успешно созданы ("Практикум")')
+        )
