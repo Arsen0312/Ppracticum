@@ -367,3 +367,5 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,pycharm+all,python,django
+
+!/media/default_image.jpg

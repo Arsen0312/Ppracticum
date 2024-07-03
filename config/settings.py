@@ -170,7 +170,7 @@ JAZZMIN_SETTINGS = {
     "site_header": "Practicum",
     "site_brand": "Practicum",
     "site_logo": "icon_practicum.png",
-    "login_logo": None,
+    "login_logo": "practicum_login_logo.png",
     "login_logo_dark": None,
     "site_logo_classes": "img-circle",
     "site_icon": None,
