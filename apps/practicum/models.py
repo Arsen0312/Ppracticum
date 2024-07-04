@@ -97,8 +97,8 @@ class Benefit(Base):
         return self.title
 
     class Meta:
-        verbose_name = _("Преимущество (Practicum)")
-        verbose_name_plural = _("Преимущества (Practicum)")
+        verbose_name = _("Преимущество")
+        verbose_name_plural = _("Преимущества")
 
 
 class Review(Base):

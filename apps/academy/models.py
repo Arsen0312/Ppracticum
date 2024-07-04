@@ -199,5 +199,5 @@ class Advantage(Base):
         return self.title
 
     class Meta:
-        verbose_name = _("Преимущество")
+        verbose_name = _("Преимущество (Курса)")
         verbose_name_plural = _("Преимущества")
