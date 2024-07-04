@@ -1,4 +1,4 @@
-// Practicum v.2.2 //
+// Practicum v.2.3 //
 
 // Таблица сотрудников
 Table Teacher {
@@ -9,7 +9,7 @@ Table Teacher {
   last_name char // Фамилия сотрудника
   patronymic char // Отчество сотрудника
 
-  rating int // Рейтинг курса
+  rating int // Рейтинг сотрудника
   avatar img // Аватар сотрудника (изображение)
   role char // Роль сотрудника в организации
 
@@ -17,7 +17,7 @@ Table Teacher {
   contacts id [ref: < Contact.id] // Связь с контактными данными сотрудника
 
   description text // Описание сотрудника
-  experience text // Опыт работы сотрудника
+  experience text [note: 'experience1 \n experience2 \n experience3'] // Опыт работы сотрудника
 }
 
 // Таблица контактных данных
