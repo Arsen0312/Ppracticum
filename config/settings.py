@@ -15,6 +15,7 @@ DOCKER_STARTUP = config("DOCKER_STARTUP", cast=bool, default=False)
 MY_APPS = [
     "apps.academy",
     "apps.practicum",
+    "apps.account",
 ]
 
 THIRD_PARTY_APPS = [

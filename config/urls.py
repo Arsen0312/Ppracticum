@@ -9,6 +9,7 @@ from .swagger import urlpatterns as swagger_yasg
 api_patterns = [
     path("academy/", include("apps.academy.urls")),
     path("practicum/", include("apps.practicum.urls")),
+    path("account/", include("apps.account.urls")),
 ]
 
 
