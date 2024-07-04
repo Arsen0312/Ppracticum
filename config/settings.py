@@ -82,8 +82,6 @@ if DOCKER_STARTUP:
             "PORT": config("POSTGRES_PORT"),
         }
     }
-
-
 else:
     DATABASES = {
         "default": {
@@ -129,14 +127,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_CREDENTIALS = config("CORS_ALLOW_CREDENTIALS", cast=bool)
 CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS").split(", ")
-
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
