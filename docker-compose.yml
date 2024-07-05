@@ -1,7 +1,15 @@
 version: '3'
 
 services:
-
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    networks:
+      - my-network
   web:
     build: .
     command: >
@@ -9,29 +17,30 @@ services:
              python manage.py migrate --noinput &&
              python manage.py collectstatic --noinput &&
              python manage.py fill_db &&
-             gunicorn --bind 0.0.0.0:8000 config.wsgi:application"
+             python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/app
-      - static_volume:/app/static
-      - media_volume:/app/media
-      - staticfiles_volume:/app/staticfiles
+      - ./staticfiles:/var/www/staticfiles
+      - ./static:/var/www/static
+      - ./media:/var/www/media
     environment:
       - PYTHONUNBUFFERED=1
       - TZ=Asia/Bishkek
     ports:
       - "8000:8000"
+    networks:
+      - my-network
     depends_on:
       - db
-
-  db:
-    image: postgres:latest
-    restart: always
     env_file:
       - .env
 
+
+
 volumes:
-  .:
   postgres_data:
   static_volume:
   media_volume:
   staticfiles_volume:
+
+networks:
+  my-network:
