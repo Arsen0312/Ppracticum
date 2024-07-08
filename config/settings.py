@@ -19,7 +19,6 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework",
     "django_filters",
-    "drf_yasg",
     "phonenumber_field",
     'drf_spectacular',
 
