@@ -20,10 +20,9 @@ services:
              python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./staticfiles:/var/www/staticfiles
-      - ./back-static:/var/www/back-static
+      - ./static:/var/www/static
       - ./media:/var/www/media
     environment:
-      - PYTHONUNBUFFERED=1
       - TZ=Asia/Bishkek
     ports:
       - "8000:8000"
