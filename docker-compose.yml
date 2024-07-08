@@ -20,7 +20,7 @@ services:
              python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./staticfiles:/var/www/staticfiles
-      - ./static:/var/www/static
+      - ./back-static:/var/www/back-static
       - ./media:/var/www/media
     environment:
       - PYTHONUNBUFFERED=1

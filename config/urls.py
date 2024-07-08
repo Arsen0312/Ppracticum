@@ -3,21 +3,28 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from .swagger import urlpatterns as swagger_yasg
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
+swagger_patterns = [
+    path('', SpectacularAPIView.as_view(), name='schema'),
+    path('swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+]
 
 api_patterns = [
     path("academy/", include("apps.academy.urls")),
     path("practicum/", include("apps.practicum.urls")),
     path("account/", include("apps.account.urls")),
     path("outsourcing/", include("apps.outsourcing.urls")),
+    path("admin/", admin.site.urls),
+    path('schema/', include(swagger_patterns))
+
 ]
 
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("api/v1/", include(api_patterns)),
-] + swagger_yasg
+]
 
 
 if settings.DEBUG:
