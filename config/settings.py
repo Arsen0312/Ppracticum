@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from decouple import config
 
 
@@ -18,7 +17,6 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework",
     "django_filters",
-    "drf_yasg",
     "phonenumber_field",
 ]
 
@@ -70,23 +68,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-if DOCKER_STARTUP:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": config("POSTGRES_DB"),
-            "USER": config("POSTGRES_USER"),
-            "PASSWORD": config("POSTGRES_PASSWORD"),
-            "HOST": config("POSTGRES_HOST"),
-            "PORT": config("POSTGRES_PORT"),
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 
@@ -114,9 +96,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
-STATIC_ROOT = BASE_DIR / "static"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
