@@ -6,11 +6,9 @@ const WelcomeToPracticum = () => {
     return (
         <div className={cls.main}>
             <div className={cls.overlay}></div>
-            <h1>
-                Добро пожаловать в Практикум
-            </h1>
-            <div className={cls.wrapper}>
-
+                <h1>
+                    Добро пожаловать в Практикум
+                </h1>
             </div>
         </div>
     );
