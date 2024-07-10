@@ -159,8 +159,8 @@ REST_FRAMEWORK = {
 
 # drf_spectacular config
 SPECTACULAR_SETTINGS = {
-    'TITLE': "AYAR GROUP's API",
-    'DESCRIPTION': 'AYAR GROUP',
+    'TITLE': "Practicum API's",
+    'DESCRIPTION': 'Practicum',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
