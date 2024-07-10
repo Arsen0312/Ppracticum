@@ -1,5 +1,3 @@
-import contextlib
-
 from pathlib import Path
 from decouple import config
 
@@ -20,8 +18,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "django_filters",
     "phonenumber_field",
-    'drf_spectacular',
-
 ]
 
 INSTALLED_APPS = (
@@ -72,16 +68,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('POSTGRES_HOST'),
-        'PORT': config('POSTGRES_PORT'),
+    DATABASES = {
+        }
     }
-}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -107,9 +96,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "/back-static/"
 STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
-STATIC_ROOT = BASE_DIR / "back-static"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
@@ -144,26 +131,6 @@ CSP_IMG_SRC = ("'self'", "data:", "cdn.ckeditor.com")
 CSRF_COOKIE_HTTPONLY = True
 CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS").split(", ")
 
-# REST FRAMEWORK
-REST_FRAMEWORK = {
-    'DEFAULT_DATETIME_FORMAT': '%d.%m.%Y %H:%M:%S',
-    'DATE_FORMAT': '%d.%m.%Y',
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10,
-}
-
-# drf_spectacular config
-SPECTACULAR_SETTINGS = {
-    'TITLE': "AYAR GROUP's API",
-    'DESCRIPTION': 'AYAR GROUP',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-}
 
 JAZZMIN_SETTINGS = {
     "site_title": "Practicum Admin",
@@ -258,6 +225,3 @@ JAZZMIN_UI_TWEAKS = {
 
 RETAILCRM_URL = config("RETAILCRM_URL", "")
 RETAILCRM_KEY = config("RETAILCRM_KEY", "")
-
-with contextlib.suppress(ImportError):
-    from .local_settings import *
