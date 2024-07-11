@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.b29b2373.css",
-    "main.js": "/static/js/main.f286d7fb.js",
+    "main.css": "/static/css/main.24118dd2.css",
+    "main.js": "/static/js/main.9aa337ae.js",
+    "static/media/ggffg-min.jpg": "/static/media/ggffg-min.5da434cb6972b7a54957.jpg",
     "static/media/logoLeft.jpeg": "/static/media/logoLeft.43c7a2e33f8ee2a89894.jpeg",
     "index.html": "/index.html",
-    "main.b29b2373.css.map": "/static/css/main.b29b2373.css.map",
-    "main.f286d7fb.js.map": "/static/js/main.f286d7fb.js.map"
+    "main.24118dd2.css.map": "/static/css/main.24118dd2.css.map",
+    "main.9aa337ae.js.map": "/static/js/main.9aa337ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.b29b2373.css",
-    "static/js/main.f286d7fb.js"
+    "static/css/main.24118dd2.css",
+    "static/js/main.9aa337ae.js"
   ]
 }
