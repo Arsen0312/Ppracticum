@@ -44,7 +44,7 @@
   .main .nav .wrapperLogo .button {
     display: none;
   }
-}
+
 .main .navItems {
   display: flex;
   justify-content: space-between;
