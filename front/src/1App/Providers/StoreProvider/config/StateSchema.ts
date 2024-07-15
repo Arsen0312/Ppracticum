@@ -1,6 +1,9 @@
 import { AxiosInstance } from "axios";
+import { benefitsReducerName } from "../../../../5Entites/benefits";
+import {IBenefitsResponse} from "../../../../5Entites/benefits/types/benefits";
 
 export interface StateSchema {
+    [benefitsReducerName]: IBenefitsResponse,
 
 }
 

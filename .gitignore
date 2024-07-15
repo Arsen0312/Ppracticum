@@ -380,7 +380,6 @@ pip-selfcheck.json
 /coverage
 
 # production
-front/build
 
 # misc
 .env.local

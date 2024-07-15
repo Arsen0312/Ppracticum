@@ -1,7 +1,8 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import {benefitsReducer} from "../../../../5Entites/benefits";
 
 const rootReducer = combineReducers({
-
+    benefits: benefitsReducer
 
 })
 
