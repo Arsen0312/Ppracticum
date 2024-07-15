@@ -1,0 +1,35 @@
+@import "../../../../../main.module.scss";
+
+.main {
+  width: 100%;
+  background-color: $blue;
+
+  * {
+    color: white;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+
+    .title {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .description {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .wrapperFeedback {
+      width: 95%;
+      margin: 50px auto 0 auto;
+
+    }
+  }
+}

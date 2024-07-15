@@ -6,7 +6,7 @@ type TPropsCurdAdvantages = {
     className:string
 }
 
-const CurdAdvantages = (props: TPropsCurdAdvantages) => {
+const CardAdvantages = (props: TPropsCurdAdvantages) => {
     const { title, description, className } = props
 
     return (
@@ -21,4 +21,4 @@ const CurdAdvantages = (props: TPropsCurdAdvantages) => {
     );
 };
 
-export default CurdAdvantages;
+export default CardAdvantages;
