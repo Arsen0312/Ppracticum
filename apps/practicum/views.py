@@ -26,5 +26,5 @@ class FounderSectionView(generics.ListAPIView):
 
 
 class ReviewView(generics.ListAPIView):
-    queryset = Review.objects.all()[:5]
+    queryset = Review.objects.all().order_by("-rating")
     serializer_class = ReviewSerializer
