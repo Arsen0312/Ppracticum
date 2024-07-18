@@ -27,7 +27,6 @@ def create_founder():
     founder_data = {
         "full_name": "Алекс Джонсон",
         "description": "Соучредитель и CEO компании Practicum.",
-        "paragraphs": "Ведет компанию с инновациями и видением.",
     }
     FounderSection.objects.get_or_create(**founder_data)
 
