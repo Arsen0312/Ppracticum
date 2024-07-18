@@ -1,7 +1,12 @@
 from django.contrib import admin
 
 from apps.practicum.forms import FounderSectionForm
-from .models import Lead, Benefit, Review, FounderSection
+from .models import Lead, Benefit, Review, FounderSection, Paragraphs
+
+
+class ParagraphsInline(admin.TabularInline):
+    model = Paragraphs
+    extra = 1
 
 
 @admin.register(Lead)
@@ -66,6 +71,9 @@ class FounderSectionAdmin(admin.ModelAdmin):
     )
     list_filter = ("created_at", "updated_at")
     readonly_fields = ("created_at", "updated_at")
+    inlines = [
+        ParagraphsInline,
+    ]
     fieldsets = (
         (
             None,
@@ -73,7 +81,6 @@ class FounderSectionAdmin(admin.ModelAdmin):
                 "fields": (
                     "full_name",
                     "description",
-                    "paragraphs",
                     "image",
                 )
             },

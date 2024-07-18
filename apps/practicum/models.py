@@ -161,12 +161,6 @@ class FounderSection(Base):
         null=True,
         help_text=_("Введите описание раздела (необязательно)"),
     )
-    paragraphs = models.TextField(
-        verbose_name=_("Параграфы раздела"),
-        help_text=_("Используйте красную строку для разделения параграфов (макс. 6)"),
-        blank=True,
-        null=True,
-    )
 
     def __str__(self):
         return self.full_name
@@ -174,3 +168,25 @@ class FounderSection(Base):
     class Meta:
         verbose_name = _("Руководитель")
         verbose_name_plural = _("Руководители")
+
+
+class Paragraphs(Base):
+    paragraphs = models.TextField(
+        verbose_name=_("Параграфы раздела"),
+        help_text=_("Используйте красную строку для разделения параграфов (макс. 6)"),
+        blank=True,
+        null=True,
+    )
+    founder = models.ForeignKey(
+        FounderSection,
+        verbose_name=_('Владелец'),
+        on_delete=models.CASCADE,
+        related_name='paragraphs',
+    )
+
+    def __str__(self):
+        return self.paragraphs
+
+    class Meta:
+        verbose_name = _('Параграф')
+        verbose_name_plural = _('Параграфы')
