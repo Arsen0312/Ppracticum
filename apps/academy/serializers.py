@@ -7,7 +7,7 @@ from ..account.models import Teacher
 class CourseTeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
-        fields = ("id", "first_name", "last_name", "role")
+        fields = ("id", "first_name", "last_name", "role", "avatar")
 
 
 class SkillSerializer(serializers.ModelSerializer):
