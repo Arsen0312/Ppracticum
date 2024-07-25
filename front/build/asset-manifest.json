@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.24118dd2.css",
-    "main.js": "/static/js/main.9aa337ae.js",
-    "static/media/ggffg-min.jpg": "/static/media/ggffg-min.5da434cb6972b7a54957.jpg",
-    "static/media/logoLeft.jpeg": "/static/media/logoLeft.43c7a2e33f8ee2a89894.jpeg",
+    "main.css": "/static/css/main.e640d9f9.css",
+    "main.js": "/static/js/main.1feb3ae1.js",
+    "static/media/backgroundImgForMainPage.jpg": "/static/media/backgroundImgForMainPage.5da434cb6972b7a54957.jpg",
+    "static/media/courseswaytosucces.jpg": "/static/media/courseswaytosucces.19712bfabfb43e70d793.jpg",
+    "static/media/coursesprobnik.png": "/static/media/coursesprobnik.0c9f532e0f811f311174.png",
     "index.html": "/index.html",
-    "main.24118dd2.css.map": "/static/css/main.24118dd2.css.map",
-    "main.9aa337ae.js.map": "/static/js/main.9aa337ae.js.map"
+    "main.e640d9f9.css.map": "/static/css/main.e640d9f9.css.map",
+    "main.1feb3ae1.js.map": "/static/js/main.1feb3ae1.js.map"
   },
   "entrypoints": [
-    "static/css/main.24118dd2.css",
-    "static/js/main.9aa337ae.js"
+    "static/css/main.e640d9f9.css",
+    "static/js/main.1feb3ae1.js"
   ]
 }

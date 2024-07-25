@@ -7,9 +7,8 @@ import { Footer } from "../3Widgets/Footer";
 
 function App() {
 
-
   return (
-    <div className={cls.App}>
+    <div id={"App"} className={cls.App}>
         <Header/>
         <AppRouter/>
         <Footer/>

@@ -11,9 +11,7 @@ const NavBar = (props: TNavbar) => {
 
     return (
         <div className={className}>
-            <Link to={""}>НАШИ УЧИТЕЛЯ</Link>
             <Link to={""}>НОВОСТИ</Link>
-            <Link to={""}>КУРСЫ</Link>
             <Link to={""}>КОНТАКТЫ</Link>
             <Link to={''}><FaUser/></Link>
         </div>

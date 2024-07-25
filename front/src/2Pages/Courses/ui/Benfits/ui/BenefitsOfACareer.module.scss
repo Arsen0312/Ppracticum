@@ -1,0 +1,37 @@
+@import "../../../../../main.module.scss";
+
+.main {
+  width: 100%;
+  @include responsive-padding-no-background;
+
+  h2 {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .wrapperForBenefits {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto;
+
+    .cardBenefits {
+      min-width: 300px;
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid black;
+      padding: 20px;
+      background: $blue;
+
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      * {
+        color: white;
+      }
+
+    }
+  }
+}
