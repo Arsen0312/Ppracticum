@@ -58,4 +58,4 @@ class TeacherAdmin(admin.ModelAdmin):
         (_("Временные метки"), {"fields": ("created_at", "updated_at")}),
     )
     filter_horizontal = ("courses",)
-    readonly_fields = ("avatar", "created_at", "updated_at")
+    readonly_fields = ("created_at", "updated_at")
