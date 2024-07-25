@@ -9,6 +9,12 @@ $color-p: gray;
 
   @media (max-width: 800px) {
     display: block;
-    padding: 0 5% 10%;
+    padding: 10% 5% 10%;
   }
+}
+
+@mixin widthWithMarginCenter {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
 }

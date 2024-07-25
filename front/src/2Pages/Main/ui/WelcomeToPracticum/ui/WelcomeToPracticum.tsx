@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const WelcomeToPracticum = () => {
 
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <div className={cls.overlay}></div>
             <div className={cls.wrapperContent}>
                 <h1>
@@ -29,7 +29,7 @@ const WelcomeToPracticum = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

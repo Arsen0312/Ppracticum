@@ -2,10 +2,12 @@ import React from "react";
 import {RouteProps} from "react-router-dom"
 import {Main} from "../../../../2Pages/Main";
 import {Courses} from "../../../../2Pages/Courses";
+import {Teacher} from "../../../../2Pages/Teacher";
 
 enum AppRoutes {
     MAIN = "main",
     COURSES = "courses",
+    TEACHER = "teacher",
 
     NOT_FOUND = "not_found",
 }
@@ -15,6 +17,7 @@ export type AppRouteProps = RouteProps & {}
 export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: "",
     [AppRoutes.COURSES]: "/courses/:id",
+    [AppRoutes.TEACHER]: "/teacher/:id",
     //last
     [AppRoutes.NOT_FOUND]: "*"
 };
@@ -27,6 +30,9 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     },[AppRoutes.COURSES]: {
         path: RoutePaths.courses,
         element: <Courses/>
+    },[AppRoutes.TEACHER]: {
+        path: RoutePaths.teacher,
+        element: <Teacher/>
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePaths.not_found,
