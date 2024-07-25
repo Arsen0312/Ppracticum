@@ -1,0 +1,36 @@
+@import "../../../../../main.module.scss";
+
+.wrapperMain {
+  width: 100vw;
+  height: 600px;
+  background-image: url("../../../../../../public/assets/img/bgPr.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+  .main {
+    @include widthWithMarginCenter;
+    @include responsive-padding-no-background;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    p {
+      width: 80%;
+      text-align: center;
+    }
+
+
+    button {
+      border-radius: 12px;
+      background-color: white;
+      padding: 10px 20px;
+    }
+  }
+}
