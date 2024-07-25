@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import cls from "./Header.module.scss"
 import {Link} from "react-router-dom";
-import logoLeft from "./Icons/logoLeft.jpeg"
 import NavBar from "./NavBar/ui/NavBar";
 import {classNames} from "../../../6Shared/lib/classNames/classNames";
 import { CiMenuBurger } from "react-icons/ci";
@@ -37,7 +36,7 @@ const Header = () => {
             <nav className={cls.nav}>
                 <div className={cls.wrapperLogo}>
                     <Link to={'/'}>
-                        <img className={cls.logo} src={logoLeft} alt=""/>
+                        <img className={cls.logo} src={"/assets/img/logoLeft.jpeg"} alt=""/>
                         <h1>Practicum</h1>
                     </Link>
                     <button className={cls.button} onClick={() => setIsCollapsed(prev => !prev)}>

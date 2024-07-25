@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import cls from "./Feedback.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
+import { RootState } from "../../../1App/Providers/StoreProvider/config/store";
+import { postFeedback } from "../postFeedback/service/postFeedback";
 
 type TInputsValues = {
-    name: string,
-    tel: string,
+    full_name: string,
+    phone: string,
     email: string
 }
 
 type TWarningValueInp = {
-    name: boolean,
-    tel: boolean,
+    full_name: boolean,
+    phone: boolean,
     email: boolean
 }
 
 const Feedback = () => {
-    const [inpValue, setInpValue] = useState<TInputsValues>({name: "", tel: "", email: ""});
-    const [warningValueInp, setWarningValueInp] = useState<TWarningValueInp>({name: false, tel: false, email: false});
+    const [inpValue, setInpValue] = useState<TInputsValues>({ full_name: "", phone: "", email: "" });
+    const [warningValueInp, setWarningValueInp] = useState<TWarningValueInp>({ full_name: false, phone: false, email: false });
+    const dispatch = useAppDispatch();
+    const response = useAppSelector((state: RootState) => state.feedback.response);
 
     const formatPhoneNumber = (value: string) => {
         if (!value) return value;
@@ -27,43 +32,58 @@ const Feedback = () => {
             return `(${phoneNumber.slice(0, 3)})-${phoneNumber.slice(3)}`;
         }
         return `(${phoneNumber.slice(0, 3)})-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 9)}`;
-    }
+    };
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value } = e.target;
+        const { name, value } = e.target;
 
-        if (id === "tel") {
+        if (name === "phone") {
             const numericValue = value.replace(/[^\d]/g, '');
             const formattedValue = formatPhoneNumber(numericValue);
+            console.log("false")
+            setWarningValueInp(prevState => ({
+                ...prevState,
+                phone: false
+            }))
             setInpValue(prevState => ({
                 ...prevState,
-                [id]: formattedValue
+                [name]: formattedValue
             }));
         } else {
+            setWarningValueInp(prevState => ({
+                ...prevState,
+                [name]: false
+            }))
             setInpValue(prevState => ({
                 ...prevState,
-                [id]: value.trim()
+                [name]: value
             }));
         }
     };
 
+    const validateFullName = (name: string) => {
+        const nameRegex = /^(?! )[A-Za-zА-Яа-яЁё]+(?: [A-Za-zА-Яа-яЁё]+)*$/;
+        return nameRegex.test(name);
+    };
+
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted with values:", inpValue);
 
         let valid = true;
-        if (inpValue.name.length < 2) {
+        setWarningValueInp({ full_name: false, phone: false, email: false });
+
+        if (!validateFullName(inpValue.full_name) || inpValue.full_name.length < 2) {
             setWarningValueInp(prevState => ({
                 ...prevState,
-                name: true
+                full_name: true
             }));
             valid = false;
         }
 
-        if (inpValue.tel.length !== 13) { // Length of formatted phone number with parentheses and dashes
+        if (inpValue.phone.length !== 13) {
             setWarningValueInp(prevState => ({
                 ...prevState,
-                tel: true
+                phone: true
             }));
             valid = false;
         }
@@ -78,10 +98,12 @@ const Feedback = () => {
 
         if (valid) {
             console.log("Все збс", inpValue);
-            // Add form submission logic here
+            const res = dispatch(postFeedback(inpValue));
+            res.then(response => {
+                console.log(response);
+            });
         }
     };
-
 
     return (
         <div className={cls.main}>
@@ -97,13 +119,13 @@ const Feedback = () => {
                     <span>Имя</span>
                     <input
                         type="text"
-                        id="name"
+                        name="full_name"
                         placeholder="Иван Иванов"
-                        value={inpValue.name}
+                        value={inpValue.full_name}
                         onChange={onChange}
-                        className={warningValueInp.name ? cls.warning : ""}
+                        className={warningValueInp.full_name ? cls.warning : cls.inputDefaultStyle}
                     />
-                    {/*{warningValueInp.name && <div className={cls.warningText}>Имя должно содержать не менее 2 символов</div>}*/}
+                    {/* {warningValueInp.full_name && <div className={cls.warningText}>Имя должно содержать не менее 2 символов</div>} */}
                 </div>
                 <div className={cls.secondBottom}>
                     <div className={cls.wrapperInput}>
@@ -114,31 +136,36 @@ const Feedback = () => {
                             </div>
                             <input
                                 type="tel"
-                                id="tel"
+                                name="phone"
                                 placeholder="(___)-___-___"
-                                value={inpValue.tel}
+                                value={inpValue.phone}
                                 onChange={onChange}
-                                className={warningValueInp.tel ? cls.warning : ""}
+                                className={warningValueInp.phone ? cls.warning : cls.inputDefaultStyle}
                             />
-                            {/*{warningValueInp.tel && <div className={cls.warningText}>Телефон должен содержать 9 цифр</div>}*/}
+                            {/* {warningValueInp.phone && <div className={cls.warningText}>Телефон должен содержать 9 цифр</div>} */}
                         </div>
                     </div>
                     <div className={cls.wrapperInput}>
                         <div>Электронная почта</div>
                         <input
                             type="email"
-                            id="email"
+                            name="email"
                             placeholder="ivanov@email.com"
                             value={inpValue.email}
                             onChange={onChange}
-                            className={warningValueInp.email ? cls.warning : ""}
+                            className={warningValueInp.email ? cls.warning : cls.inputDefaultStyle}
                         />
-                        {/*{warningValueInp.email && <div className={cls.warningText}>Введите корректный email</div>}*/}
+                        {/* {warningValueInp.email && <div className={cls.warningText}>Введите корректный email</div>} */}
                     </div>
                 </div>
-                <button type="submit">
-                    Запросить уточнение
-                </button>
+                <div className={cls.wrapperButtonWithResponse}>
+                    <button type="submit">
+                        Запросить уточнение
+                    </button>
+                    <span>
+                        {response}
+                    </span>
+                </div>
             </form>
         </div>
     );

@@ -18,15 +18,19 @@
   }
 
   input {
+    position: relative;
     padding: 10px;
-    border: none;
+    border: 1px solid #f2f2f2;
     background-color: #f2f2f2;
     border-radius: 8px;
     font-size: 14px;
+    color: black;
   }
 
   .warning {
+    transition: border 500ms;
     border: 1px solid $red;
+
   }
 
   .first {
@@ -47,6 +51,7 @@
 
     h2 {
       margin-bottom: 10px;
+      color: black;
 
       @media (max-width: 500px) {
         font-size: 20px;
@@ -106,6 +111,12 @@
           white-space: nowrap;
         }
 
+        .inputDefaultStyle  {
+          transition: border 500ms;
+          border: 1px solid #f2f2f2;
+
+        }
+
         input {
           width: 95%;
 
@@ -151,18 +162,27 @@
 
     }
 
-    button {
-      width: 48%;
-      border: none;
-      padding: 10px 0;
-      border-radius: 8px;
-      background-color: $red;
-      color: white;
-      font-size: 14px;
+    .wrapperButtonWithResponse {
+      display: flex;
 
-      @media (max-width: 500px) {
-        width: 100%;
-        margin-top: 8px;
+      button {
+        width: 48%;
+        border: none;
+        padding: 10px 0;
+        border-radius: 8px;
+        background-color: $red;
+        color: white;
+        font-size: 14px;
+        margin-right: 10px;
+
+        @media (max-width: 500px) {
+          width: 100%;
+          margin-top: 8px;
+        }
+      }
+
+      span {
+        max-width: 50%;
       }
     }
 

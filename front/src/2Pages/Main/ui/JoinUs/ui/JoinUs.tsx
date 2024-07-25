@@ -4,7 +4,6 @@ import {Feedback} from "../../../../../4Features/Feedback";
 
 const JoinUs = () => {
 
-
     return (
         <div className={cls.main}>
             <div className={cls.wrapper}>

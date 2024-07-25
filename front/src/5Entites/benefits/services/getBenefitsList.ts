@@ -7,7 +7,6 @@ export const getBenefitsList = createAsyncThunk<IBenefitsResponse, void, { rejec
     async (_, thunkAPI) => {
         try {
             const response = await $api.get<IBenefitsResponse>(`/api/v1/practicum/benefits/`);
-            console.log(response)
             return thunkAPI.fulfillWithValue(response.data);
         } catch (e) {
             console.log(e)

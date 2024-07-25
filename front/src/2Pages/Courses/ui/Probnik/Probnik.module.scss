@@ -1,0 +1,39 @@
+.ProbnikSection{
+    background-image: url("../../../../../public/assets/img/coursesprobnik.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 55vh;
+    width: 100vw;
+    background-color: #fff;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    .ProbnikContainer{
+        text-align: center;
+        @media (max-width:670px) {
+            margin-top: -85px;
+        }
+        .ProbnikTitle{
+            margin-bottom: 15px;
+            font-size: 55px;
+            color: #fff;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .ProbnikDesc{
+            color: #ffffffe0;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .ProbnikBtn{
+            width: 150px;
+            height: 45px;
+            margin-top: 3%;
+            border-radius: 10px;
+            border-color: #23445b;
+            box-shadow: 5px 5px 20px 0 rgba(0,0,0,0.2);
+        }
+    }
+}

@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const Footer = () => {
 
     return (
-        <div className={cls.main}>
+        <footer className={cls.main}>
             <div className={cls.companyData}>
                 <div className={cls.wrapperCompanyDate}>
                     <div className={cls.elementCompanyDate}>
@@ -97,7 +97,7 @@ const Footer = () => {
                     © Practicum, All Right Reserved. Developed By Oskonbaev & Shatmanov
                 </h3>
             </div>
-        </div>
+        </footer>
     );
 };
 

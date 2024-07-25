@@ -5,16 +5,18 @@ import Slider from '../../../../../6Shared/simpleComponents /Slider/Slider';
 import {useAppDispatch, useAppSelector} from "../../../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
 import {getBenefitsList} from "../../../../../5Entites/benefits/services/getBenefitsList";
 import {RootState} from "../../../../../1App/Providers/StoreProvider/config/store";
+import {getCoursesList} from "../../../../../5Entites/сourses/services/getCoursesList";
+import {Link} from "react-router-dom";
 
 const PopularCourses = () => {
     const dispatch = useAppDispatch()
     const result = useAppSelector((state: RootState) => state.benefits.response.results)
+    const cursesList = useAppSelector((state: RootState) => state.courses.responseList.results)
 
     useEffect(() => {
         dispatch(getBenefitsList())
+        dispatch(getCoursesList())
     }, []);
-
-    console.log(result)
 
     return (
         <div className={cls.main}>
@@ -36,25 +38,16 @@ const PopularCourses = () => {
                     </div>
                     <div className={cls.contentRight}>
                         <ul className={cls.listExcellencies}>
-                            <li>
-                                Курс практической бухгалтерии: Работа с 1С Предприятие
-                            </li>
-                            <hr/>
-                            <li>
-                                Курс практической бухгалтерии: Работа с 1С Предприятие
-                            </li>
-                            <hr/>
-                            <li>
-                                Эффективное управление с 1С 8.3 УНФ: Подготовка для бизнеса в Кыргызстане
-                            </li>
-                            <hr/>
-                            <li>
-                                Программирование для школьников (01 юниор)
-                            </li>
-                            <hr/>
-                            <li>
-                                Введение в цифровой мир: Основы компьютерной грамотности
-                            </li>
+                            {cursesList.map((courses, id) => (
+                                id + 1 == cursesList.length
+                                    ? <Link to={`courses/${courses.id}`}>
+                                        <li key={courses.id}>{courses.title}</li>
+                                      </Link>
+                                    : <><Link to={`courses/${courses.id}`}>
+                                            <li key={courses.id}>{courses.title}</li>
+                                        </Link><hr/>
+                                      </>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -79,22 +72,10 @@ const PopularCourses = () => {
                     </h2>
                 </div>
                 <Slider>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
-                    <CardAdvantages className={cls.wrapperCurd} title={'ПОДДЕРЖКА НА ПУТИ К КАРЬЕРНОМУ РОСТУ'}
-                                    description={'Мы гордимся тем, что предоставляем нашим выпускникам поддержку в трудоустройстве - выдающееся достижение среди компаний Кыргызстана. Более 500 учеников уже воспользовались этой уникальной возможностью для старта и развития своих карьер.'}/>
+                    {result.map(benefit => (
+                        <CardAdvantages key={benefit.id} className={cls.wrapperCurd} title={benefit.title}
+                                        description={benefit.description}/>
+                    ))}
                 </Slider>
             </section>
         </div>
