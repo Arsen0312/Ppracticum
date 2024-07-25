@@ -1,4 +1,4 @@
-import { coursesReducerName, coursesReducer, coursesActions, IBenefitsState } from "./slice/coursesListSlice";
+import { coursesReducerName, coursesReducer, coursesActions, IBenefitsState } from "./slice/coursesSlice";
 import { IAdvantages } from "./types/coursesById";
 
 export {

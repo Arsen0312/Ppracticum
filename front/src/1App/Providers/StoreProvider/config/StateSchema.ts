@@ -4,11 +4,13 @@ import {IBenefitsResponse} from "../../../../5Entites/benefits";
 import {coursesReducerName} from "../../../../5Entites/сourses";
 import {IBenefitsState} from "../../../../5Entites/сourses";
 import {feedbackReducerName, IFeedback} from "../../../../4Features/Feedback/postFeedback";
+import {ITeacherResponse, teacherReducerName} from "../../../../5Entites/teacher";
 
 export interface StateSchema {
     [benefitsReducerName]: IBenefitsResponse,
     [coursesReducerName]: IBenefitsState,
-    [feedbackReducerName]: IFeedback
+    [feedbackReducerName]: IFeedback,
+    [teacherReducerName]: ITeacherResponse
 
 }
 

@@ -16,10 +16,10 @@ const PopularCourses = () => {
     useEffect(() => {
         dispatch(getBenefitsList())
         dispatch(getCoursesList())
-    }, []);
+    }, [dispatch]);
 
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <section className={cls.section1}>
                 <div className={cls.title}>
                     <h1>Наши <br/>самые популярные курсы</h1>
@@ -39,14 +39,12 @@ const PopularCourses = () => {
                     <div className={cls.contentRight}>
                         <ul className={cls.listExcellencies}>
                             {cursesList.map((courses, id) => (
-                                id + 1 == cursesList.length
-                                    ? <Link to={`courses/${courses.id}`}>
-                                        <li key={courses.id}>{courses.title}</li>
-                                      </Link>
-                                    : <><Link to={`courses/${courses.id}`}>
-                                            <li key={courses.id}>{courses.title}</li>
-                                        </Link><hr/>
-                                      </>
+                                <React.Fragment key={courses.id}>
+                                    <Link to={`courses/${courses.id}`}>
+                                        <li>{courses.title}</li>
+                                    </Link>
+                                    {id + 1 !== cursesList.length && <hr/>}
+                                </React.Fragment>
                             ))}
                         </ul>
                     </div>
@@ -78,7 +76,7 @@ const PopularCourses = () => {
                     ))}
                 </Slider>
             </section>
-        </div>
+        </section>
     );
 };
 

@@ -1,3 +1,25 @@
-.main {
+@import "../../../../../main.module.scss";
 
+.wrapperMain {
+  width: 100%;
+  background-color: $red;
+
+
+  .main {
+    @include widthWithMarginCenter;
+    @include responsive-padding-no-background;
+
+    h2 {
+      color: white;
+      text-align: center;
+      font-size: 36px;
+    }
+
+      .curd {
+        min-width: 300px;
+        width: 100%;
+        min-height: 100%;
+      }
+
+  }
 }

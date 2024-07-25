@@ -7,9 +7,9 @@ import {RootState} from "../../../1App/Providers/StoreProvider/config/store";
 import {useParams} from "react-router-dom";
 import DescriptionCourses from "./DescriptionCourses/ui/DescriptionCourses";
 import BenefitsOfACareer from "./Benfits/ui/BenefitsOfACareer";
-import CoursesTeam from './CoursesTeam/CoursesTeam';
-import Probnik from './Probnik/Probnik';
-import WayToSuccess from './WayToSuccess/WayToSuccess';
+import WelcomeToTeamPracticum from "./WelcomeToTeamPracticum/ui/WelcomeToTeamPracticum";
+import WatchATrialLesson from "./WatchATrialLesson/ui/WatchATrialLesson";
+import YourPathToSuccess from "./YourPathToSuccess/ui/YourPathToSuccess";
 
 type TParams = {
     id: string
@@ -29,10 +29,10 @@ const Courses = () => {
         } else {
             console.log("id является undefined")
         }
-    }, []);
+    }, [dispatch]);
 
     console.log(dateCourses)
-    
+
     return (
         <main className={cls.main}>
             <WelcomeToCourses
@@ -46,9 +46,9 @@ const Courses = () => {
                 duration={dateCourses.duration}
             />
             <BenefitsOfACareer tag={dateCourses.tag} skills={dateCourses.skills}/>
-            <CoursesTeam teachers={dateCourses.teachers}/>
-            <Probnik/>
-            <WayToSuccess/>
+            <WelcomeToTeamPracticum allTeachers={dateCourses.teachers}/>
+            <WatchATrialLesson/>
+            <YourPathToSuccess/>
         </main>
     );
 };

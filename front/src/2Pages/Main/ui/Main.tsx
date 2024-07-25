@@ -12,7 +12,7 @@ import JoinUs from "./JoinUs/ui/JoinUs";
 const Main = () => {
 
     return (
-        <div className={cls.main}>
+        <main className={cls.main}>
             <WelcomeToPracticum/>
             <PopularCourses/>
             <MeetTheFounder/>
@@ -20,7 +20,7 @@ const Main = () => {
             <OurTeam/>
             <Reviews/>
             <JoinUs/>
-        </div>
+        </main>
     );
 };
 
