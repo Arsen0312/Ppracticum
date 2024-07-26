@@ -4,7 +4,7 @@ import {IoCheckmark} from "react-icons/io5";
 
 const MeetTheFounder = () => {
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <h2>
                 Встречайте!<br/>
                 Омурзакова Бактыгуль Урманбетовна
@@ -64,7 +64,7 @@ const MeetTheFounder = () => {
                     успех подкреплен опытом и знаниями Бактыгуль Урманбетовны.
                 </p>
             </div>
-        </div>
+        </section>
     );
 };
 

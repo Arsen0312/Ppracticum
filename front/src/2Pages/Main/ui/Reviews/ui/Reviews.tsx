@@ -6,7 +6,7 @@ import {CardReviews} from "../../../../../4Features/CardReviews";
 const Reviews = () => {
 
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <h2 className={cls.title}>
                 Наши отзывы
             </h2>
@@ -47,7 +47,7 @@ const Reviews = () => {
                              className={cls.curdReviews}
                 />
             </Slider>
-        </div>
+        </section>
     );
 };
 

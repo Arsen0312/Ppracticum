@@ -31,6 +31,7 @@ export const benefitsSLice = createSlice({
             .addCase(getBenefitsList.fulfilled, (state, action: PayloadAction<IBenefitsResponse>) => {
                 state.isLoading = false;
                 state.response = action.payload;
+                state.errors = [];
             })
             .addCase(getBenefitsList.rejected, (state, action) => {
                 state.isLoading = false;

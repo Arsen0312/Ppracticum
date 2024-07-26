@@ -6,7 +6,7 @@ import Slider from "../../../../../6Shared/simpleComponents /Slider/Slider";
 const OurTeam = () => {
 
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <h2>
                 Встречайте нашу команду – основу успеха Практикума!
             </h2>
@@ -24,7 +24,7 @@ const OurTeam = () => {
                 <TeachersCard img={'/assets/img/teacher1.jpeg'} name={'ДУШАБАЕВА ЖЫЛДЫЗ АБДЫРАШИТОВНА'} profession={'ПРЕПОДАВАТЕЛЬ'} className={cls.curdTeacher}/>
                 <TeachersCard img={'/assets/img/teacher1.jpeg'} name={'ДУШАБАЕВА ЖЫЛДЫЗ АБДЫРАШИТОВНА'} profession={'ПРЕПОДАВАТЕЛЬ'} className={cls.curdTeacher}/>
             </Slider>
-        </div>
+        </section>
     );
 };
 

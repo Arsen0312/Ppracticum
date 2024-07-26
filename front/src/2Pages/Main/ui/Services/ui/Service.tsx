@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Service = () => {
 
     return (
-        <div className={cls.main}>
+        <section className={cls.main}>
             <div className={cls.wrapperFull}>
                 <div className={cls.wrapperImgTop}>
                     <img src="/assets/img/serviceImg1.jpg" alt=""/>
@@ -39,7 +39,7 @@ const Service = () => {
                 </div>
                 <div className={cls.backgroundBlue}></div>
             </div>
-        </div>
+        </section>
     );
 };
 
