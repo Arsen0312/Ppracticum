@@ -1,14 +1,16 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {benefitsReducer} from "../../../../5Entites/benefits";
-import {coursesReducer} from "../../../../5Entites/сourses";
 import {feedbackReducer} from "../../../../4Features/Feedback/postFeedback";
 import {teacherReducer} from "../../../../5Entites/teacher";
+import {coursesReducers} from "../../../../5Entites/сourses";
+import { reviewsReducer } from "../../../../5Entites/reviews";
 
 const rootReducer = combineReducers({
     benefits: benefitsReducer,
-    courses: coursesReducer,
+    courses: coursesReducers,
     feedback: feedbackReducer,
-    teacher: teacherReducer
+    teacher: teacherReducer,
+    news: reviewsReducer
 
 })
 
