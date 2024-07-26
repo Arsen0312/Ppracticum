@@ -21,13 +21,12 @@ const WelcomeToTeamPracticum = (props: TWelcomeToTeamPracticum) => {
                 </h2>
                 <Slider>
                     {allTeachers.map((teacher, id) => (
-                        <Link className={cls.curd} to={`${teacher.id}`} key={id}>
                             <TeacherCurd
+                                id={teacher.id}
                                 img={teacher.avatar}
                                 first_name={teacher.first_name}
                                 last_name={teacher.last_name}
                                 role={teacher.role}/>
-                        </Link>
                     ))}
                 </Slider>
             </div>

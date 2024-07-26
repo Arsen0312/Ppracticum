@@ -74,6 +74,6 @@ export const coursesSlice = createSlice({
 
 export const {
     name: coursesReducerName,
-    reducer: coursesReducer,
+    reducer: coursesReducers,
     actions: coursesActions
 } = coursesSlice

@@ -21,20 +21,22 @@ const WelcomeToCourses = (props: TWelcomeToCourses) => {
     useOutsideClick(ref, offModalWindow);
 
     return (
-        <section className={cls.main}>
-            <div className={cls.wrapperDescriptionCourses}>
-                <h3>ОБУЧЕНИЕ "ПРАКТИКУМ"</h3>
-                <h1>{title}</h1>
-                <p>{description}</p>
-                <button onClick={() => setIsModeModal(true)}>Подробнее</button>
+        <section className={cls.wrapperMain}>
+            <div className={cls.main}>
+                <div className={cls.wrapperDescriptionCourses}>
+                    <h3>ОБУЧЕНИЕ "ПРАКТИКУМ"</h3>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                    <button onClick={() => setIsModeModal(true)}>Подробнее</button>
+                </div>
+                <img
+                    src={background_person}
+                    alt="background_person"
+                />
+                <Modal mode={isModeModal} ref={ref}>
+                    <Feedback/>
+                </Modal>
             </div>
-            <img
-                src={background_person}
-                alt="background_person"
-            />
-            <Modal mode={isModeModal} ref={ref}>
-                <Feedback />
-            </Modal>
         </section>
     );
 };
