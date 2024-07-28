@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Lead, Benefit, Review, FounderSection, Paragraphs
+from .models import Lead, Benefit, Review, FounderSection, Paragraphs, News
 
 
 class LeadSerializer(serializers.ModelSerializer):
@@ -40,3 +40,9 @@ class FounderSectionSerializer(serializers.ModelSerializer):
             'description',
             'paragraphs',
         )
+
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = "__all__"

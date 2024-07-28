@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from apps.practicum.forms import FounderSectionForm
-from .models import Lead, Benefit, Review, FounderSection, Paragraphs
+from .models import Lead, Benefit, Review, FounderSection, Paragraphs, News
 
 
 class ParagraphsInline(admin.TabularInline):
@@ -89,4 +89,17 @@ class FounderSectionAdmin(admin.ModelAdmin):
             "Временные метки",
             {"fields": ("created_at", "updated_at"), "classes": ("collapse",)},
         ),
+    )
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'title',
+        'rating'
+    )
+    list_display_links = (
+        'id',
+        'title'
     )

@@ -190,3 +190,37 @@ class Paragraphs(Base):
     class Meta:
         verbose_name = _('Параграф')
         verbose_name_plural = _('Параграфы')
+
+
+class News(Base):
+    title = models.CharField(
+        max_length=255,
+        verbose_name=_("Заголовок"),
+        help_text=_("Введите заголовок"),
+    )
+    body = models.TextField(
+        verbose_name=_('Текст'),
+        help_text=('Основной текст новости')
+    )
+    rating = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
+        default=1,
+        verbose_name=_("Рейтинг новости"),
+        help_text=_("Укажите рейтинг новости (от 0 до 10)"),
+    )
+    image = models.ImageField(
+        upload_to="news/",
+        verbose_name=_("Изображение новости"),
+        default="default_image.jpg",
+        blank=True,
+        null=True,
+        help_text=_("Загрузите изображение основателя (необязательно)")
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = ("Новость")
+        verbose_name_plural = ("Новости")
