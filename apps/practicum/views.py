@@ -4,10 +4,10 @@ from apps.practicum.serializers import (
     BenefitSerializer,
     FounderSectionSerializer,
     LeadSerializer,
-    ReviewSerializer,
+    ReviewSerializer, NewsSerializer,
 )
 
-from .models import Benefit, FounderSection, Lead, Review
+from .models import Benefit, FounderSection, Lead, Review, News
 
 
 class LeadView(generics.CreateAPIView):
@@ -28,3 +28,8 @@ class FounderSectionView(generics.ListAPIView):
 class ReviewView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+
+class NewsView(generics.ListAPIView):
+    queryset = News.objects.all().order_by('-rating')
+    serializer_class = NewsSerializer
