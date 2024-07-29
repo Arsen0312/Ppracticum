@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 import cls from "./Reviews.module.scss"
 import Slider from "../../../../../6Shared/simpleComponents /Slider/Slider";
 import {CardReviews} from "../../../../../4Features/CardReviews";
-import {useAppDispatch, useAppSelector} from "../../../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
+import {useAppDispatch, useAppSelector} from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import {RootState} from "../../../../../1App/Providers/StoreProvider/config/store";
 import {getReviewsList} from "../../../../../5Entites/reviews/services/getReviewsList";
 
 const Reviews = () => {
     const dispatch = useAppDispatch()
-    const dateNews = useAppSelector((state : RootState) => state.news.responseList.results)
+    const dateNews = useAppSelector((state : RootState) => state.reviews.responseList.results)
 
     useEffect(() =>{
         dispatch(getReviewsList())

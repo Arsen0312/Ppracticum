@@ -4,13 +4,17 @@ import {feedbackReducer} from "../../../../4Features/Feedback/postFeedback";
 import {teacherReducer} from "../../../../5Entites/teacher";
 import {coursesReducers} from "../../../../5Entites/сourses";
 import {reviewsReducer} from "../../../../5Entites/reviews";
+import {founderReducer} from "../../../../5Entites/founder";
+import {newsReducer} from "../../../../5Entites/news";
 
 const rootReducer = combineReducers({
     benefits: benefitsReducer,
     courses: coursesReducers,
     feedback: feedbackReducer,
     teacher: teacherReducer,
-    news: reviewsReducer
+    reviews: reviewsReducer,
+    founder: founderReducer,
+    news: newsReducer
 
 })
 

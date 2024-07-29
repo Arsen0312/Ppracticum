@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import cls from "./Header.module.scss"
 import {Link} from "react-router-dom";
 import NavBar from "./NavBar/ui/NavBar";
-import {classNames} from "../../../6Shared/lib/classNames/classNames";
+import {classNames} from "../../../6Shared/libs/classNames/classNames";
 import { CiMenuBurger } from "react-icons/ci";
 
 const Header = () => {

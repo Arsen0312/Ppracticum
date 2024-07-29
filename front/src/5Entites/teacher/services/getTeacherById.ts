@@ -1,12 +1,12 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ITeacherResponse} from "../types/teacher";
+import {ITeacherByIdResponse} from "../types/teacherById";
 import {$api} from "../../../6Shared/api";
 
-export const getTeacherById = createAsyncThunk<ITeacherResponse, number, { rejectValue: string }>(
+export const getTeacherById = createAsyncThunk<ITeacherByIdResponse, number, { rejectValue: string }>(
     "getTeacherById",
     async (id, thunkAPI) => {
         try {
-            const response = await $api.get<ITeacherResponse>(`/api/v1/account/teachers/${id}/`);
+            const response = await $api.get<ITeacherByIdResponse>(`/api/v1/account/teachers/${id}/`);
             return thunkAPI.fulfillWithValue(response.data);
         } catch (e) {
             console.log(e)
