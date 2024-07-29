@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import cls from "./YourPathToSuccess.module.scss"
 import {Modal} from "../../../../../6Shared/simpleComponents /Modal";
 import {Feedback} from "../../../../../4Features/Feedback";
-import useOutsideClick from "../../../../../6Shared/lib/hooks/useOutsideClick/useOutsideClick";
+import useOutsideClick from "../../../../../6Shared/libs/hooks/useOutsideClick/useOutsideClick";
 
 const YourPathToSuccess = () => {
     const [isModeModal, setIsModeModal] = useState<boolean>(false);
@@ -23,7 +23,9 @@ const YourPathToSuccess = () => {
                     горизонты и откройте новые возможности для карьерного и личностного роста.
                 </p>
                 <p>
-                    Записывайтесь сейчас и начните свой путь к успеху вместе с нами!
+                    <b>
+                        Записывайтесь сейчас и начните свой путь к успеху вместе с нами!
+                    </b>
                 </p>
                 <button onClick={() => setIsModeModal(true)}>
                     Связаться с нами

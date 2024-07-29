@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cls from "./Feedback.module.scss";
-import { useAppDispatch, useAppSelector } from "../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
+import { useAppDispatch, useAppSelector } from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import { RootState } from "../../../1App/Providers/StoreProvider/config/store";
 import { postFeedback } from "../postFeedback/service/postFeedback";
 

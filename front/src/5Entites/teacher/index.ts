@@ -1,8 +1,4 @@
-import { teacherReducerName, teacherReducer, teacherActions } from "./slice/teacherSlice";
-
-import { ITeacherResponse } from "./types/teacher";
-
-
+import { teacherReducerName, teacherReducer, teacherActions, ITeacherState } from "./slice/teacherSlice";
 
 export {
     teacherReducerName,
@@ -12,5 +8,5 @@ export {
 }
 
 export type {
-    ITeacherResponse
+    ITeacherState
 }

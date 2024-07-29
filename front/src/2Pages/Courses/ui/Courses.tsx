@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import cls from "./Courses.module.scss";
 import WelcomeToCourses from "./WelcomeToCourses/ui/WelcomeToCourses";
-import {useAppDispatch, useAppSelector} from "../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
+import {useAppDispatch, useAppSelector} from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import {getCoursesById} from "../../../5Entites/сourses/services/getCoursesById";
 import {RootState} from "../../../1App/Providers/StoreProvider/config/store";
 import {useParams} from "react-router-dom";

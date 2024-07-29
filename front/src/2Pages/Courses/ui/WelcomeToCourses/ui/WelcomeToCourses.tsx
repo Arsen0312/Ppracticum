@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import cls from './WelcomeToCourses.module.scss';
 import { Feedback } from '../../../../../4Features/Feedback';
-import useOutsideClick from '../../../../../6Shared/lib/hooks/useOutsideClick/useOutsideClick';
+import useOutsideClick from '../../../../../6Shared/libs/hooks/useOutsideClick/useOutsideClick';
 import { Modal } from "../../../../../6Shared/simpleComponents /Modal";
 
 type TWelcomeToCourses = {

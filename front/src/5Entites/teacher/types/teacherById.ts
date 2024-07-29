@@ -18,7 +18,7 @@ export interface ITeacherByIdResponse {
     first_name: string,
     last_name: string,
     patronymic: string,
-    rating: string,
+    rating: number,
     avatar: string,
     role: string,
     description: string,

@@ -2,11 +2,11 @@ import React, {useEffect} from 'react';
 import cls from "./PopularCourses.module.scss"
 import {CardAdvantages} from "../../../../../4Features/CardAdvantages";
 import Slider from '../../../../../6Shared/simpleComponents /Slider/Slider';
-import {useAppDispatch, useAppSelector} from "../../../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
 import {getBenefitsList} from "../../../../../5Entites/benefits/services/getBenefitsList";
 import {RootState} from "../../../../../1App/Providers/StoreProvider/config/store";
 import {getCoursesList} from "../../../../../5Entites/сourses/services/getCoursesList";
 import {Link} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 
 const PopularCourses = () => {
     const dispatch = useAppDispatch()
@@ -16,10 +16,10 @@ const PopularCourses = () => {
     useEffect(() => {
         dispatch(getBenefitsList())
         dispatch(getCoursesList())
-    }, [dispatch]);
+    }, []);
 
     return (
-        <section className={cls.main}>
+        <div className={cls.main}>
             <section className={cls.section1}>
                 <div className={cls.title}>
                     <h1>Наши <br/>самые популярные курсы</h1>
@@ -39,12 +39,14 @@ const PopularCourses = () => {
                     <div className={cls.contentRight}>
                         <ul className={cls.listExcellencies}>
                             {cursesList.map((courses, id) => (
-                                <React.Fragment key={courses.id}>
-                                    <Link to={`courses/${courses.id}`}>
-                                        <li>{courses.title}</li>
+                                id + 1 == cursesList.length
+                                    ? <Link to={`courses/${courses.id}`}>
+                                        <li key={courses.id}>{courses.title}</li>
                                     </Link>
-                                    {id + 1 !== cursesList.length && <hr/>}
-                                </React.Fragment>
+                                    : <><Link to={`courses/${courses.id}`}>
+                                        <li key={courses.id}>{courses.title}</li>
+                                    </Link><hr/>
+                                    </>
                             ))}
                         </ul>
                     </div>
@@ -76,7 +78,7 @@ const PopularCourses = () => {
                     ))}
                 </Slider>
             </section>
-        </section>
+        </div>
     );
 };
 

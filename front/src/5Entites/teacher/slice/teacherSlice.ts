@@ -1,16 +1,25 @@
-import {ITeacherResponse} from "../types/teacher";
+import {ITeacherByIdResponse} from "../types/teacherById";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getTeacherById} from "../services/getTeacherById";
+import {ITeacherListResponse} from "../types/teacherList";
+import {getTeacherList} from "../services/getTeacherList";
 
-interface IBenefitsState {
+export interface ITeacherState {
     isLoading: boolean;
     errors: string[] | [];
-    response: ITeacherResponse;
+    responseList: ITeacherListResponse;
+    response: ITeacherByIdResponse;
 }
 
-const initialState: IBenefitsState = {
+const initialState: ITeacherState = {
     isLoading: false,
     errors: [],
+    responseList: {
+        count: 0,
+        next: null,
+        previous: null,
+        results: []
+    },
     response: {
         id: 0,
         contacts: {
@@ -47,12 +56,25 @@ export const teacherSlice = createSlice({
             .addCase(getTeacherById.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(getTeacherById.fulfilled, (state, action: PayloadAction<ITeacherResponse>) => {
+            .addCase(getTeacherById.fulfilled, (state, action: PayloadAction<ITeacherByIdResponse>) => {
                 state.isLoading = false;
                 state.response = action.payload;
                 state.errors = [];
             })
             .addCase(getTeacherById.rejected, (state, action) => {
+                state.isLoading = false;
+                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+            });
+        builder
+            .addCase(getTeacherList.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getTeacherList.fulfilled, (state, action: PayloadAction<ITeacherListResponse>) => {
+                state.isLoading = false;
+                state.responseList = action.payload;
+                state.errors = [];
+            })
+            .addCase(getTeacherList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
             });

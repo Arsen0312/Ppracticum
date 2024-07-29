@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
 import cls from "./News.module.scss"
 import NewsList from "./NewsList/ui/NewsList";
-import {useAppDispatch, useAppSelector} from "../../../6Shared/lib/hooks/useAppReduxToolkitTools/redux";
+import {useAppDispatch, useAppSelector} from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import {RootState} from "../../../1App/Providers/StoreProvider/config/store";
-import {getReviewsList} from "../../../5Entites/reviews/services/getReviewsList";
+import { getNewsList } from '../../../5Entites/news/services/getNewsList';
 
 const News = () => {
     const dispatch = useAppDispatch()
     const dateNews = useAppSelector((state : RootState) => state.news.responseList.results)
 
     useEffect(() =>{
-        dispatch(getReviewsList())
+        dispatch(getNewsList())
     }, [dispatch])
+
 
     return (
         <div className={cls.main}>
@@ -26,7 +27,7 @@ const News = () => {
                     <div className={cls.solidBottom}></div>
                 </div>
             </div>
-            <NewsList allNews={dateNews}/>
+            <NewsList allNews={dateNews} key={dateNews.length}/>
         </div>
     );
 };
