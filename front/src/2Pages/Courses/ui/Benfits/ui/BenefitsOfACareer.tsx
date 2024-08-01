@@ -1,6 +1,7 @@
 import React from 'react';
-import cls from "./BenefitsOfACareer.module.scss"
-import {ISkills} from "../../../../../5Entites/сourses/types/coursesById";
+
+import cls from "./BenefitsOfACareer.module.scss";
+import { ISkills } from "../../../../../5Entites/сourses/types/coursesById";
 
 type TBenefitsOfACareer = {
     tag: string | null,
@@ -8,13 +9,13 @@ type TBenefitsOfACareer = {
 }
 
 const BenefitsOfACareer = (props: TBenefitsOfACareer) => {
-    const { tag, skills } = props
+    const { tag, skills } = props;
 
     return (
         <section className={cls.wrapperMain}>
-            <div className={cls.semicircle}></div>
+            <div className={cls.semicircle}/>
             <div className={cls.main}>
-                <h2>Преимущества карьеры<br/>{tag ? tag : "этой профессии"}</h2>
+                <h2>Преимущества карьеры<br/>{tag || "этой профессии"}</h2>
                 <div className={cls.wrapperForBenefits}>
                     {skills.map(skill => (
                         <div className={cls.cardBenefits}>
@@ -25,7 +26,7 @@ const BenefitsOfACareer = (props: TBenefitsOfACareer) => {
                 </div>
             </div>
         </section>
-    )
+    );
 };
 
 export default BenefitsOfACareer;

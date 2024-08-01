@@ -1,6 +1,7 @@
 import React from 'react';
-import cls from "./Service.module.scss"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import cls from "./Service.module.scss";
 
 const Service = () => {
 
@@ -27,8 +28,8 @@ const Service = () => {
                             Бухгалтерское обслуживание: От частичной помощи до полного ведения бухгалтерии – выберите
                             оптимальный вариант для вашего бизнеса.
                         </p>
-                        <Link to={""}>
-                            <button>
+                        <Link to="##">
+                            <button type="button">
                                 Узнать больше
                             </button>
                         </Link>
@@ -37,7 +38,7 @@ const Service = () => {
                         <img src="/assets/img/serviceImg2.jpeg" alt=""/>
                     </div>
                 </div>
-                <div className={cls.backgroundBlue}></div>
+                <div className={cls.backgroundBlue}/>
             </div>
         </section>
     );

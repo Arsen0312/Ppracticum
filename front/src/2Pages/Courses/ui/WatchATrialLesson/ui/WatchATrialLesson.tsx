@@ -1,5 +1,6 @@
 import React from 'react';
-import cls from "./WatchATrialLesson.module.scss"
+
+import cls from "./WatchATrialLesson.module.scss";
 
 const WatchATrialLesson = () => {
     return (

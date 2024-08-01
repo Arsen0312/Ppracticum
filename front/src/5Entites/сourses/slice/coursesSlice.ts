@@ -1,8 +1,9 @@
-import {ICoursesListResponse} from "../types/coursesList";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getCoursesList} from "../services/getCoursesList";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getCoursesById } from "../services/getCoursesById";
+import { getCoursesList } from "../services/getCoursesList";
 import { ICoursesByIdResponse } from "../types/coursesById";
-import {getCoursesById} from "../services/getCoursesById";
+import { ICoursesListResponse } from "../types/coursesList";
 
 export interface IBenefitsState {
     isLoading: boolean;
@@ -24,7 +25,7 @@ const initialState: IBenefitsState = {
         id: 0,
         skills: [],
         advantages: [],
-        teachers:[],
+        teachers: [],
         created_at: "",
         updated_at: "",
         title: "",
@@ -37,7 +38,7 @@ const initialState: IBenefitsState = {
         trial_lesson: null,
         background_person: ""
     }
-}
+};
 
 export const coursesSlice = createSlice({
     name: "courses",
@@ -54,7 +55,7 @@ export const coursesSlice = createSlice({
             })
             .addCase(getCoursesList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] :[...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
         builder
             .addCase(getCoursesById.pending, (state) => {
@@ -66,14 +67,14 @@ export const coursesSlice = createSlice({
             })
             .addCase(getCoursesById.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] :[...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
 
     }
-})
+});
 
 export const {
     name: coursesReducerName,
     reducer: coursesReducers,
     actions: coursesActions
-} = coursesSlice
+} = coursesSlice;

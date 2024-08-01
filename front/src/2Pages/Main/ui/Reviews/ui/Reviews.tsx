@@ -1,18 +1,19 @@
-import React, {useEffect} from 'react';
-import cls from "./Reviews.module.scss"
+import React, { useEffect } from 'react';
+
+import cls from "./Reviews.module.scss";
+import { RootState } from "../../../../../1App/Providers/StoreProvider/config/store";
+import { CardReviews } from "../../../../../4Features/CardReviews";
+import { getReviewsList } from "../../../../../5Entites/reviews/services/getReviewsList";
+import { useAppDispatch, useAppSelector } from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import Slider from "../../../../../6Shared/simpleComponents /Slider/Slider";
-import {CardReviews} from "../../../../../4Features/CardReviews";
-import {useAppDispatch, useAppSelector} from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
-import {RootState} from "../../../../../1App/Providers/StoreProvider/config/store";
-import {getReviewsList} from "../../../../../5Entites/reviews/services/getReviewsList";
 
 const Reviews = () => {
-    const dispatch = useAppDispatch()
-    const dateNews = useAppSelector((state : RootState) => state.reviews.responseList.results)
+    const dispatch = useAppDispatch();
+    const dateNews = useAppSelector((state: RootState) => state.reviews.responseList.results);
 
-    useEffect(() =>{
-        dispatch(getReviewsList())
-    }, [dispatch])
+    useEffect(() => {
+        dispatch(getReviewsList());
+    }, [dispatch]);
 
     return (
         <section className={cls.main}>
@@ -24,7 +25,7 @@ const Reviews = () => {
             </h3>
             <p className={cls.descriptionTitle}>
                 Успехи наших студентов и их положительные отзывы - наша гордость и подтверждение высокого качества
-                обучения в "Практикуме". Мы всегда рады помочь вам в достижении ваших профессиональных и личных целей.
+                обучения в Практикуме. Мы всегда рады помочь вам в достижении ваших профессиональных и личных целей.
             </p>
             <Slider>
                 {dateNews.map(review => (

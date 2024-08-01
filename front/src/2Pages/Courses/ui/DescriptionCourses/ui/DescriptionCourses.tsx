@@ -1,6 +1,7 @@
 import React from 'react';
-import cls from "./DescriptionCourses.module.scss"
-import {IAdvantages} from "../../../../../5Entites/сourses";
+
+import cls from "./DescriptionCourses.module.scss";
+import { IAdvantages } from "../../../../../5Entites/сourses";
 
 
 type TDescriptionCourses = {
@@ -10,7 +11,7 @@ type TDescriptionCourses = {
 }
 
 const DescriptionCourses = (props: TDescriptionCourses) => {
-    const {purpose, advantages, duration} = props
+    const { purpose, advantages, duration } = props;
 
     return (
         <section className={cls.wrapperMain}>

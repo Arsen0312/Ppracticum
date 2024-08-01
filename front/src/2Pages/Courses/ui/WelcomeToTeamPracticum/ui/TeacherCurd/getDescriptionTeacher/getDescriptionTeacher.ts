@@ -1,5 +1,5 @@
-import { $api } from "../../../../../../../6Shared/api";
 import { ITeacherByIdResponse } from "../../../../../../../5Entites/teacher/types/teacherById";
+import { $api } from "../../../../../../../6Shared/api";
 
 export const getDescriptionTeacher = async (id: number): Promise<ITeacherByIdResponse | void> => {
     try {

@@ -1,6 +1,7 @@
-import { IReviewsListResponse } from "../types/reviewsList";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { getReviewsList } from "../services/getReviewsList";
+import { IReviewsListResponse } from "../types/reviewsList";
 
 // Определяем интерфейс состояния
 export interface IReviewsState {

@@ -5,8 +5,8 @@ export {
     teacherActions,
     teacherReducer
 
-}
+};
 
 export type {
     ITeacherState
-}
+};

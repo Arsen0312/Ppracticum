@@ -1,6 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {INewsListResponse} from "../types/newsList";
-import {getNewsList} from "../services/getNewsList";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getNewsList } from "../services/getNewsList";
+import { INewsListResponse } from "../types/newsList";
 
 export interface INewsState {
     isLoading: boolean;
@@ -17,7 +18,7 @@ const initialState: INewsState = {
         previous: null,
         results: []
     }
-}
+};
 
 export const newsSlice = createSlice({
     name: "news",
@@ -35,13 +36,13 @@ export const newsSlice = createSlice({
             })
             .addCase(getNewsList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [action.payload] : ["ошибка при получения ошибки из action.payload"];
             });
     }
-})
+});
 
 export const {
     name: newsReducerName,
     reducer: newsReducer,
     actions: newsActions
-} = newsSlice
+} = newsSlice;

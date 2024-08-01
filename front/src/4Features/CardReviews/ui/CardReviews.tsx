@@ -7,7 +7,7 @@ type TCardReviews = {
 }
 
 const CardReviews = (props: TCardReviews) => {
-    const {name, description, className} = props
+    const { name, description, className } = props;
 
     return (
         <div className={className}>

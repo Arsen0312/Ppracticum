@@ -1,7 +1,5 @@
 import { benefitsReducerName, benefitsReducer, benefitsActions } from "./slice/benefitsSlice";
-
 import { IBenefitsResponse } from "./types/benefits";
-
 
 
 export {
@@ -9,8 +7,8 @@ export {
     benefitsActions,
     benefitsReducer
 
-}
+};
 
 export type {
     IBenefitsResponse
-}
+};

@@ -5,9 +5,9 @@ export {
     coursesReducerName,
     coursesActions,
     coursesReducers
-}
+};
 
 export type {
     IBenefitsState,
     IAdvantages
-}
+};

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
+
 import cls from "./TeacherCurd.module.scss";
-import { getDescriptionTeacher } from "../getDescriptionTeacher/getDescriptionTeacher";
 import { ITeacherByIdResponse } from "../../../../../../../5Entites/teacher/types/teacherById";
+import { getDescriptionTeacher } from "../getDescriptionTeacher/getDescriptionTeacher";
 
 type TTeacherCurd = {
     id: number;
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     img: string;
     role: string;
 };
 
 const TeacherCurd = (props: TTeacherCurd) => {
-    const { first_name, last_name, role, img, id } = props;
+    const { firstName, lastName, role, img, id } = props;
     const [dateTeacher, setDateTeacher] = useState<ITeacherByIdResponse | undefined>(undefined);
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const TeacherCurd = (props: TTeacherCurd) => {
             </div>
             <div className={cls.wrapperDescription}>
                 <h4>{role}</h4>
-                <h2>{first_name} {last_name}</h2>
+                <h2>{firstName} {lastName}</h2>
                 <p>
                     {dateTeacher?.description}
                 </p>

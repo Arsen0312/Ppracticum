@@ -1,15 +1,18 @@
 import React from "react";
-import {RouteProps} from "react-router-dom"
-import {Main} from "../../../../2Pages/Main";
-import {Courses} from "../../../../2Pages/Courses";
-import {Teacher} from "../../../../2Pages/Teacher";
-import {News} from "../../../../2Pages/News";
+import { RouteProps } from "react-router-dom";
+
+import { Courses } from "../../../../2Pages/Courses";
+import { Main } from "../../../../2Pages/Main";
+import { News } from "../../../../2Pages/News";
+import { Outsourcing } from "../../../../2Pages/Outsourcing";
+import { Teacher } from "../../../../2Pages/Teacher";
 
 enum AppRoutes {
     MAIN = "main",
     COURSES = "courses",
     TEACHER = "teacher",
     NEWS = "news",
+    OUTSOURCING = "outsourcing",
 
     NOT_FOUND = "not_found",
 }
@@ -21,7 +24,9 @@ export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.COURSES]: "/courses/:id",
     [AppRoutes.TEACHER]: "/teacher/:id",
     [AppRoutes.NEWS]: "/reviews",
-    //last
+    [AppRoutes.OUTSOURCING]: "/outsourcing",
+
+    // last
     [AppRoutes.NOT_FOUND]: "*"
 };
 
@@ -30,15 +35,18 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {
         path: RoutePaths.main,
         element: <Main/>
-    },[AppRoutes.COURSES]: {
+    }, [AppRoutes.COURSES]: {
         path: RoutePaths.courses,
         element: <Courses/>
-    },[AppRoutes.TEACHER]: {
+    }, [AppRoutes.TEACHER]: {
         path: RoutePaths.teacher,
         element: <Teacher/>
-    },[AppRoutes.NEWS]: {
+    }, [AppRoutes.NEWS]: {
         path: RoutePaths.news,
         element: <News/>
+    }, [AppRoutes.OUTSOURCING]: {
+        path: RoutePaths.outsourcing,
+        element: <Outsourcing/>
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePaths.not_found,

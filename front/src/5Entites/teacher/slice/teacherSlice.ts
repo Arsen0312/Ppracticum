@@ -1,8 +1,9 @@
-import {ITeacherByIdResponse} from "../types/teacherById";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getTeacherById} from "../services/getTeacherById";
-import {ITeacherListResponse} from "../types/teacherList";
-import {getTeacherList} from "../services/getTeacherList";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getTeacherById } from "../services/getTeacherById";
+import { getTeacherList } from "../services/getTeacherList";
+import { ITeacherByIdResponse } from "../types/teacherById";
+import { ITeacherListResponse } from "../types/teacherList";
 
 export interface ITeacherState {
     isLoading: boolean;
@@ -45,7 +46,7 @@ const initialState: ITeacherState = {
         experience: '',
         courses: [],
     }
-}
+};
 
 export const teacherSlice = createSlice({
     name: "teacher",
@@ -63,7 +64,7 @@ export const teacherSlice = createSlice({
             })
             .addCase(getTeacherById.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [action.payload] : ["ошибка при получения ошибки из action.payload"];
             });
         builder
             .addCase(getTeacherList.pending, (state) => {
@@ -76,13 +77,13 @@ export const teacherSlice = createSlice({
             })
             .addCase(getTeacherList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [action.payload] : ["ошибка при получения ошибки из action.payload"];
             });
     }
-})
+});
 
 export const {
     name: teacherReducerName,
     reducer: teacherReducer,
     actions: teacherActions
-} = teacherSlice
+} = teacherSlice;

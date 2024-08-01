@@ -1,22 +1,23 @@
-import React, {useEffect} from 'react';
-import cls from "./PopularCourses.module.scss"
-import {CardAdvantages} from "../../../../../4Features/CardAdvantages";
+import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
+
+import cls from "./PopularCourses.module.scss";
+import { RootState } from "../../../../../1App/Providers/StoreProvider/config/store";
+import { CardAdvantages } from "../../../../../4Features/CardAdvantages";
+import { getBenefitsList } from "../../../../../5Entites/benefits/services/getBenefitsList";
+import { getCoursesList } from "../../../../../5Entites/сourses/services/getCoursesList";
+import { useAppDispatch, useAppSelector } from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import Slider from '../../../../../6Shared/simpleComponents /Slider/Slider';
-import {getBenefitsList} from "../../../../../5Entites/benefits/services/getBenefitsList";
-import {RootState} from "../../../../../1App/Providers/StoreProvider/config/store";
-import {getCoursesList} from "../../../../../5Entites/сourses/services/getCoursesList";
-import {Link} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 
 const PopularCourses = () => {
-    const dispatch = useAppDispatch()
-    const result = useAppSelector((state: RootState) => state.benefits.response.results)
-    const cursesList = useAppSelector((state: RootState) => state.courses.responseList.results)
+    const dispatch = useAppDispatch();
+    const result = useAppSelector((state: RootState) => state.benefits.response.results);
+    const cursesList = useAppSelector((state: RootState) => state.courses.responseList.results);
 
     useEffect(() => {
-        dispatch(getBenefitsList())
-        dispatch(getCoursesList())
-    }, []);
+        dispatch(getBenefitsList());
+        dispatch(getCoursesList());
+    }, [dispatch]);
 
     return (
         <div className={cls.main}>
@@ -39,13 +40,14 @@ const PopularCourses = () => {
                     <div className={cls.contentRight}>
                         <ul className={cls.listExcellencies}>
                             {cursesList.map((courses, id) => (
-                                id + 1 == cursesList.length
+                                id + 1 === cursesList.length
                                     ? <Link to={`courses/${courses.id}`}>
                                         <li key={courses.id}>{courses.title}</li>
                                     </Link>
                                     : <><Link to={`courses/${courses.id}`}>
                                         <li key={courses.id}>{courses.title}</li>
-                                    </Link><hr/>
+                                    </Link>
+                                    <hr/>
                                     </>
                             ))}
                         </ul>
@@ -62,19 +64,19 @@ const PopularCourses = () => {
                         <div className={cls.wrapperFirst}><img src="/assets/img/3.jpeg" alt=""/></div>
                         <div className={cls.wrapperLast}><img src="/assets/img/4.jpeg" alt=""/></div>
                     </div>
-                    <div className={cls.blueBackground}></div>
+                    <div className={cls.blueBackground}/>
                 </div>
             </section>
             <section className={cls.section3}>
                 <div>
                     <h2>
-                        Откройте для себя уникальные преимущества<br/> обучения и развития в "Практикуме"
+                        Откройте для себя уникальные преимущества<br/> обучения и развития в Практикуме
                     </h2>
                 </div>
                 <Slider>
                     {result.map(benefit => (
                         <CardAdvantages key={benefit.id} className={cls.wrapperCurd} title={benefit.title}
-                                        description={benefit.description}/>
+                            description={benefit.description}/>
                     ))}
                 </Slider>
             </section>

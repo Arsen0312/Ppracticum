@@ -1,6 +1,7 @@
-import {IBenefitsResponse} from "../types/benefits";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getBenefitsList} from "../services/getBenefitsList";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getBenefitsList } from "../services/getBenefitsList";
+import { IBenefitsResponse } from "../types/benefits";
 
 interface IBenefitsState {
     isLoading: boolean;
@@ -17,7 +18,7 @@ const initialState: IBenefitsState = {
         previous: null,
         results: []
     }
-}
+};
 
 export const benefitsSLice = createSlice({
     name: "benefits",
@@ -35,13 +36,13 @@ export const benefitsSLice = createSlice({
             })
             .addCase(getBenefitsList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [action.payload] : ["ошибка при получения ошибки из action.payload"];
             });
     }
-})
+});
 
 export const {
     name: benefitsReducerName,
     reducer: benefitsReducer,
     actions: benefitsActions
-} = benefitsSLice
+} = benefitsSLice;

@@ -1,6 +1,7 @@
-import {IFounderResponse} from "../types/founder";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {getFounder} from "../services/getFounder";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { getFounder } from "../services/getFounder";
+import { IFounderResponse } from "../types/founder";
 
 export interface IFounderState {
     isLoading: boolean;
@@ -22,7 +23,7 @@ const initialState: IFounderState = {
             paragraphs: []
         }]
     }
-}
+};
 
 export const founderSlice = createSlice({
     name: "founder",
@@ -40,13 +41,13 @@ export const founderSlice = createSlice({
             })
             .addCase(getFounder.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [action.payload] :["ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [action.payload] : ["ошибка при получения ошибки из action.payload"];
             });
     }
-})
+});
 
 export const {
     name: founderReducerName,
     reducer: founderReducer,
     actions: founderActions
-} = founderSlice
+} = founderSlice;

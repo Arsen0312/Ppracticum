@@ -1,14 +1,15 @@
 import React from 'react';
-import cls from "./Loader.module.scss"
-import {colorLoader} from "./config/colorLoader";
-import {MoonLoader} from "react-spinners"
+import { MoonLoader } from "react-spinners";
+
+import { colorLoader } from "./config/colorLoader";
+import cls from "./Loader.module.scss";
 
 interface ILoaderProps {
     size?: number
 }
 
 const Loader = (props: ILoaderProps) => {
-    const { size } = props
+    const { size } = props;
 
     return (
         <div className={cls.main}>

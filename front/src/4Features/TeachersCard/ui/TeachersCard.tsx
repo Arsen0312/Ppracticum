@@ -8,7 +8,7 @@ type TTeachersCardProps = {
 }
 
 const TeachersCard = (props: TTeachersCardProps) => {
-    const { img, name, profession, className } = props
+    const { img, name, profession, className } = props;
 
     return (
         <div className={className}>

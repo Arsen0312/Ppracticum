@@ -1,12 +1,13 @@
 import React from 'react';
-import cls from "./WelcomeToPracticum.module.scss"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import cls from "./WelcomeToPracticum.module.scss";
 
 const WelcomeToPracticum = () => {
 
     return (
         <section className={cls.main}>
-            <div className={cls.overlay}></div>
+            <div className={cls.overlay}/>
             <div className={cls.wrapperContent}>
                 <h1>
                     Добро пожаловать в Практикум
@@ -15,16 +16,16 @@ const WelcomeToPracticum = () => {
                     Наши услуги
                 </p>
                 <div className={cls.wrapperNavigation}>
-                    <Link to={''}>
+                    <Link to="/outsourcing">
                         Аутсорсинг бухгалтерии
                     </Link>
-                    <Link to={''}>
+                    <Link to="">
                         Бухгалтерия для начинающих
                     </Link>
-                    <Link to={''}>
+                    <Link to="">
                         1C предприятие
                     </Link>
-                    <Link to={''}>
+                    <Link to="">
                         Подготовка бизнеса
                     </Link>
                 </div>

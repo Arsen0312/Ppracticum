@@ -1,14 +1,15 @@
 import React from 'react';
-import cls from "./MeetTheFounder.module.scss"
-import {IoCheckmark} from "react-icons/io5";
-import {IFounder} from "../../../../../5Entites/founder";
+import { IoCheckmark } from "react-icons/io5";
+
+import cls from "./MeetTheFounder.module.scss";
+import { IFounder } from "../../../../../5Entites/founder";
 
 type TMeetTheFounder = {
     dateFounder: IFounder
 }
 
 const MeetTheFounder = (props: TMeetTheFounder) => {
-    const {dateFounder} = props
+    const { dateFounder } = props;
 
     return (
         <section className={cls.main}>
@@ -26,11 +27,11 @@ const MeetTheFounder = (props: TMeetTheFounder) => {
                             id + 1 !== dateFounder.paragraphs.length
                                 ? <>
                                     <li key={id}><span className={cls.wrapperIcons}>
-                                            <IoCheckmark size={52}/>
-                                        </span>
-                                        <span>
-                                            {p.paragraphs}
-                                        </span>
+                                        <IoCheckmark size={52}/>
+                                    </span>
+                                    <span>
+                                        {p.paragraphs}
+                                    </span>
                                     </li>
                                     <hr/>
                                 </>

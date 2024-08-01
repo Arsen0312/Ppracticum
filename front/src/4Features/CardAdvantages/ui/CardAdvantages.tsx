@@ -3,11 +3,11 @@ import React from 'react';
 type TPropsCurdAdvantages = {
     title: string,
     description: string,
-    className:string
+    className: string
 }
 
 const CardAdvantages = (props: TPropsCurdAdvantages) => {
-    const { title, description, className } = props
+    const { title, description, className } = props;
 
     return (
         <div className={className}>

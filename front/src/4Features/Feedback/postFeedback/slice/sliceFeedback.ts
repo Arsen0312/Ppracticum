@@ -1,6 +1,7 @@
-import { IFeedback } from "../type/typeFeedback";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { postFeedback } from "../service/postFeedback";
+import { IFeedback } from "../type/typeFeedback";
 
 interface IFeedbackState {
     isLoading: boolean;

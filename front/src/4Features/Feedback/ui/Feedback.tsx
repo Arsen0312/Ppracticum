@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
 import cls from "./Feedback.module.scss";
-import { useAppDispatch, useAppSelector } from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import { RootState } from "../../../1App/Providers/StoreProvider/config/store";
+import { useAppDispatch, useAppSelector } from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 import { postFeedback } from "../postFeedback/service/postFeedback";
 
 type TInputsValues = {
@@ -18,7 +19,9 @@ type TWarningValueInp = {
 
 const Feedback = () => {
     const [inpValue, setInpValue] = useState<TInputsValues>({ full_name: "", phone: "", email: "" });
-    const [warningValueInp, setWarningValueInp] = useState<TWarningValueInp>({ full_name: false, phone: false, email: false });
+    const [warningValueInp, setWarningValueInp] = useState<TWarningValueInp>({
+        full_name: false, phone: false, email: false
+    });
     const dispatch = useAppDispatch();
     const response = useAppSelector((state: RootState) => state.feedback.response);
 
@@ -40,11 +43,11 @@ const Feedback = () => {
         if (name === "phone") {
             const numericValue = value.replace(/[^\d]/g, '');
             const formattedValue = formatPhoneNumber(numericValue);
-            console.log("false")
+            console.log("false");
             setWarningValueInp(prevState => ({
                 ...prevState,
                 phone: false
-            }))
+            }));
             setInpValue(prevState => ({
                 ...prevState,
                 [name]: formattedValue
@@ -53,7 +56,7 @@ const Feedback = () => {
             setWarningValueInp(prevState => ({
                 ...prevState,
                 [name]: false
-            }))
+            }));
             setInpValue(prevState => ({
                 ...prevState,
                 [name]: value

@@ -1,23 +1,24 @@
-import React, {useEffect} from 'react';
-import cls from "./Main.module.scss"
-import WelcomeToPracticum from "./WelcomeToPracticum/ui/WelcomeToPracticum";
-import PopularCourses from "./PopularCourses/ui/PopularCourses";
-import MeetTheFounder from "./MeetTheFounder/ui/MeetTheFounder";
-import Service from "./Services/ui/Service";
-import OurTeam from "./OurTeam/ui/OurTeam";
-import Reviews from "./Reviews/ui/Reviews";
+import React, { useEffect } from 'react';
+
 import JoinUs from "./JoinUs/ui/JoinUs";
-import {useAppDispatch, useAppSelector} from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
-import {RootState} from "../../../1App/Providers/StoreProvider/config/store";
-import {getFounder} from "../../../5Entites/founder/services/getFounder";
+import cls from "./Main.module.scss";
+import MeetTheFounder from "./MeetTheFounder/ui/MeetTheFounder";
+import OurTeam from "./OurTeam/ui/OurTeam";
+import PopularCourses from "./PopularCourses/ui/PopularCourses";
+import Reviews from "./Reviews/ui/Reviews";
+import Service from "./Services/ui/Service";
+import WelcomeToPracticum from "./WelcomeToPracticum/ui/WelcomeToPracticum";
+import { RootState } from "../../../1App/Providers/StoreProvider/config/store";
+import { getFounder } from "../../../5Entites/founder/services/getFounder";
+import { useAppDispatch, useAppSelector } from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
 
 
 const Main = () => {
-    const dispatch = useAppDispatch()
-    const dateFounder = useAppSelector((state: RootState) => state.founder.response.results[0])
+    const dispatch = useAppDispatch();
+    const dateFounder = useAppSelector((state: RootState) => state.founder.response.results[0]);
 
     useEffect(() => {
-        dispatch(getFounder())
+        dispatch(getFounder());
     }, [dispatch]);
 
     return (
