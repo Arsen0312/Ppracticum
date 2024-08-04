@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
@@ -6,39 +6,28 @@ import cls from "./Header.module.scss";
 import NavBar from "./NavBar/ui/NavBar";
 import { classNames } from "../../../6Shared/libs/classNames/classNames";
 
-
 const Header = () => {
     const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-    const [isMobile, setIsMobile] = useState<boolean>(false);
-    const [width, setWidth] = useState(window.innerWidth);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 990);
+
+    const handleResize = useCallback(() => {
+        setIsMobile(window.innerWidth <= 990);
+    }, []);
 
     useEffect(() => {
-        const handleResize = () => {
-            setWidth(window.innerWidth);
-        };
-
         window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
-
-    useEffect(() => {
-        if (window.innerWidth <= 990) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
-    }, [width]);
-
+    }, [handleResize]);
 
     return (
         <header className={cls.main}>
             <nav className={cls.nav}>
                 <div className={cls.wrapperLogo}>
                     <Link to="/">
-                        <img className={cls.logo} src="/assets/img/logoLeft.jpeg" alt=""/>
+                        <img className={cls.logo} src="/assets/img/logoLeft.jpeg" alt="Логотип"/>
                         <h1>Practicum</h1>
                     </Link>
                     {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}

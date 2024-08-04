@@ -2,6 +2,7 @@ import { AxiosInstance } from "axios";
 
 import { feedbackReducerName, IFeedback } from "../../../../4Features/Feedback/postFeedback";
 import { IBenefitsResponse, benefitsReducerName } from "../../../../5Entites/benefits";
+import { contactsReducerName, IContactsState } from "../../../../5Entites/contacts";
 import { founderReducerName, IFounderState } from "../../../../5Entites/founder";
 import { INewsState, newsReducerName } from "../../../../5Entites/news";
 import { IOutsourcingState, outsourcingReducerName } from "../../../../5Entites/outsourcing";
@@ -18,7 +19,8 @@ export interface StateSchema {
     [reviewsReducerName]: IReviewsState,
     [founderReducerName]: IFounderState,
     [newsReducerName]: INewsState,
-    [outsourcingReducerName]: IOutsourcingState
+    [outsourcingReducerName]: IOutsourcingState,
+    [contactsReducerName]: IContactsState
 
 }
 

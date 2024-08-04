@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import cls from "./OurTeam.module.scss";
 import { RootState } from "../../../../../1App/Providers/StoreProvider/config/store";
@@ -27,11 +28,12 @@ const OurTeam = () => {
             </p>
             <Slider>
                 {teacherList.map((teacher) => (
-                    <TeachersCard
-                        key={teacher.id} img={`${teacher.avatar}`}
-                        name={`${teacher.first_name} ${teacher.last_name}`}
-                        profession={teacher.role}
-                        className={cls.curdTeacher}/>
+                    <Link to={`/teacher/${teacher.id}`}>
+                        <TeachersCard
+                            key={teacher.id} img={`${teacher.avatar}`}
+                            name={`${teacher.first_name} ${teacher.last_name}`}
+                            profession={teacher.role}/>
+                    </Link>
                 ))}
             </Slider>
         </section>

@@ -1,3 +1,81 @@
-.main {
+@import "../../../main.module.scss";
 
+.main {
+  max-width: $max-width;
+  width: 100vw;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+
+  @media (max-width: 1280px) {
+    @include responsive-padding-no-background;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  .wrapperImg {
+    width: 50%;
+    padding-right: 20px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin-bottom: 40px;
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+
+    }
+  }
+
+  .description {
+    width: 50%;
+    padding-left: 20px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      padding: 0;
+    }
+
+    h3 {
+      color: $red;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3%;
+
+      li {
+        width: 48.5%;
+        margin-bottom: 10px;
+        color: $red;
+
+        a {
+          color: $red;
+        }
+      }
+    }
+  }
 }

@@ -20,7 +20,7 @@ const WelcomeToTeamPracticum = (props: TWelcomeToTeamPracticum) => {
                     Познакомьтесь с командой Практикум
                 </h2>
                 <Slider>
-                    {allTeachers.map((teacher, id) => (
+                    {allTeachers.map((teacher) => (
                         <TeacherCurd
                             id={teacher.id}
                             img={teacher.avatar}

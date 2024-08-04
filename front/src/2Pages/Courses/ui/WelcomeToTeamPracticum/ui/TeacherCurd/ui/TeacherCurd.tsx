@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 import cls from "./TeacherCurd.module.scss";
 import { ITeacherByIdResponse } from "../../../../../../../5Entites/teacher/types/teacherById";
@@ -29,16 +30,18 @@ const TeacherCurd = (props: TTeacherCurd) => {
 
     return (
         <div className={cls.main}>
-            <div className={cls.wrapperImg}>
-                <img src={img} alt=""/>
-            </div>
-            <div className={cls.wrapperDescription}>
-                <h4>{role}</h4>
-                <h2>{firstName} {lastName}</h2>
-                <p>
-                    {dateTeacher?.description}
-                </p>
-            </div>
+            <Link to={`/teacher/${id}`}>
+                <div className={cls.wrapperImg}>
+                    <img src={img} alt=""/>
+                </div>
+                <div className={cls.wrapperDescription}>
+                    <h4>{role}</h4>
+                    <h2>{firstName} {lastName}</h2>
+                    <p>
+                        {dateTeacher?.description}
+                    </p>
+                </div>
+            </Link>
         </div>
     );
 };

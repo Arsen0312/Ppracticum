@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaTelegram } from "react-icons/fa";
 import { FaWhatsapp, FaPhone } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
@@ -8,8 +8,18 @@ import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 import cls from "./Footer.module.scss";
+import { RootState } from "../../../1App/Providers/StoreProvider/config/store";
+import { fetchContacts } from "../../../5Entites/contacts/services/fetchContacts";
+import { useAppDispatch, useAppSelector } from "../../../6Shared/libs/hooks/useAppReduxToolkitTools/redux";
+
 
 const Footer = () => {
+    const dispatch = useAppDispatch();
+    const contact = useAppSelector((state: RootState) => state.contacts.contacts);
+
+    useEffect(() => {
+        dispatch(fetchContacts());
+    }, [dispatch]);
 
     return (
         <footer className={cls.main}>
@@ -20,17 +30,17 @@ const Footer = () => {
                             Социальные сети
                         </h2>
                         <div className={cls.wrapperIconsForSocialMedia}>
-                            <Link to="https://www.instagram.com/buhgalter_bishkek_1c">
+                            <Link to={`${contact.instagram || ""}`}>
                                 <div className={cls.wrapperIcon}>
                                     <IoLogoInstagram/>
                                 </div>
                             </Link>
-                            <Link to="https://www.instagram.com/buhgalter_bishkek_1c">
+                            <Link to={`${contact.whatsapp || ""}`}>
                                 <div className={cls.wrapperIcon}>
                                     <FaWhatsapp/>
                                 </div>
                             </Link>
-                            <Link to="https://t.me/madinka">
+                            <Link to={`${contact.telegram || ''}`}>
                                 <div className={cls.wrapperIcon}>
                                     <FaTelegram/>
                                 </div>
@@ -48,19 +58,19 @@ const Footer = () => {
                         </h2>
                         <div className={cls.wrapperIconsForContacts}>
                             <div className={cls.wrapperContact}>
-                                <Link to="https://2gis.kg/bishkek/firm/70000001078720042">
+                                <Link to={`${contact.address || ''}`}>
                                     <MdLocationOn color="white"/>
                                     Наш Адрес
                                 </Link>
                             </div>
                             <div className={cls.wrapperContact}>
-                                <Link to="tel:+996700766507">
+                                <Link to={`${contact.phone || ''}`}>
                                     <FaPhone color="white"/>
-                                    +996700766507
+                                    {contact.phone}
                                 </Link>
                             </div>
                             <div className={cls.wrapperContact}>
-                                <Link to="mailto:baktigul_sd@gmail.com">
+                                <Link to={`${contact.email || ''}`}>
                                     <LuMail color="white"/>
                                     baktigul_sd@gmail.com
                                 </Link>
@@ -92,9 +102,11 @@ const Footer = () => {
                 </div>
             </div>
             <div className={cls.companyDopData}>
-                <h3>
-                    © Practicum, All Right Reserved. Developed By Oskonbaev & Shatmanov
-                </h3>
+                <Link to="/privacyPolicy">
+                    <h3>
+                        Подробнее о политике конфиденциальности
+                    </h3>
+                </Link>
             </div>
         </footer>
     );

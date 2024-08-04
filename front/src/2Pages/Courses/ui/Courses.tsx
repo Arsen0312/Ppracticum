@@ -48,7 +48,8 @@ const Courses = () => {
             />
             <BenefitsOfACareer tag={dateCourses.tag} skills={dateCourses.skills}/>
             <WelcomeToTeamPracticum allTeachers={dateCourses.teachers}/>
-            <WatchATrialLesson/>
+            <WatchATrialLesson
+                src={dateCourses.trial_lesson || 'https://www.youtube.com/embed/LXb3EKWsInQ?si=6GFjPA7NlOR9Sya5'}/>
             <YourPathToSuccess title={dateCourses.title}/>
         </main>
     );

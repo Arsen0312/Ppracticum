@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { feedbackReducer } from "../../../../4Features/Feedback/postFeedback";
 import { benefitsReducer } from "../../../../5Entites/benefits";
+import { contactsReducer } from "../../../../5Entites/contacts";
 import { founderReducer } from "../../../../5Entites/founder";
 import { newsReducer } from "../../../../5Entites/news";
 import { outsourcingReducer } from "../../../../5Entites/outsourcing";
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     reviews: reviewsReducer,
     founder: founderReducer,
     news: newsReducer,
-    outsourcing: outsourcingReducer
+    outsourcing: outsourcingReducer,
+    contacts: contactsReducer
 
 });
 

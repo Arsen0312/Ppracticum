@@ -5,6 +5,7 @@ import { Courses } from "../../../../2Pages/Courses";
 import { Main } from "../../../../2Pages/Main";
 import { News } from "../../../../2Pages/News";
 import { Outsourcing } from "../../../../2Pages/Outsourcing";
+import { PrivacyPolicy } from "../../../../2Pages/PrivacyPolicy";
 import { Teacher } from "../../../../2Pages/Teacher";
 
 enum AppRoutes {
@@ -13,6 +14,7 @@ enum AppRoutes {
     TEACHER = "teacher",
     NEWS = "news",
     OUTSOURCING = "outsourcing",
+    PRIVACYPOLICY = "privacyPolicy",
 
     NOT_FOUND = "not_found",
 }
@@ -25,6 +27,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.TEACHER]: "/teacher/:id",
     [AppRoutes.NEWS]: "/reviews",
     [AppRoutes.OUTSOURCING]: "/outsourcing",
+    [AppRoutes.PRIVACYPOLICY]: "/privacyPolicy",
 
     // last
     [AppRoutes.NOT_FOUND]: "*"
@@ -47,6 +50,9 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     }, [AppRoutes.OUTSOURCING]: {
         path: RoutePaths.outsourcing,
         element: <Outsourcing/>
+    }, [AppRoutes.PRIVACYPOLICY]: {
+        path: RoutePaths.privacyPolicy,
+        element: <PrivacyPolicy/>
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePaths.not_found,
