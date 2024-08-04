@@ -55,7 +55,8 @@ export const outsourcingSlice = createSlice({
             })
             .addCase(getOutsourcingList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] :
+                    [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
         builder
             .addCase(getOutsourcingById.pending, (state) => {
@@ -67,7 +68,8 @@ export const outsourcingSlice = createSlice({
             })
             .addCase(getOutsourcingById.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] :
+                    [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
 
     }

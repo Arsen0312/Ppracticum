@@ -55,7 +55,8 @@ export const coursesSlice = createSlice({
             })
             .addCase(getCoursesList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] :
+                    [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
         builder
             .addCase(getCoursesById.pending, (state) => {
@@ -67,7 +68,8 @@ export const coursesSlice = createSlice({
             })
             .addCase(getCoursesById.rejected, (state, action) => {
                 state.isLoading = false;
-                state.errors = action.payload ? [...state.errors, action.payload] : [...state.errors, "ошибка при получения ошибки из action.payload"];
+                state.errors = action.payload ? [...state.errors, action.payload] :
+                    [...state.errors, "ошибка при получения ошибки из action.payload"];
             });
 
     }

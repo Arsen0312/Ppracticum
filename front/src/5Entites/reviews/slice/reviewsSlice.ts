@@ -39,7 +39,8 @@ export const reviewsSlice = createSlice({
             .addCase(getReviewsList.rejected, (state, action: PayloadAction<any>) => {
                 state.isLoading = false;
                 // Если action.payload - это объект ошибки, используйте его сообщение
-                state.errors = action.payload ? [...state.errors, action.payload.message || "Ошибка при получении данных"] : [...state.errors, "Ошибка при получении данных"];
+                state.errors = action.payload ? [...state.errors, action.payload.message ||
+                "Ошибка при получении данных"] : [...state.errors, "Ошибка при получении данных"];
             });
     }
 });
