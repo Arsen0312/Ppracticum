@@ -23,7 +23,7 @@ const NewsList = (props: TNewsList) => {
                                 {news.title}
                             </h2>
                             <h5>
-                                {news.created_at}
+                                {news.created_at.slice(0, 10)}
                             </h5>
                         </div>
                         <p>
