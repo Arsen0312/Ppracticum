@@ -17,6 +17,7 @@ const YourPathToSuccess = () => {
     return (
         <section className={cls.wrapperMain}>
             <div className={cls.main}>
+                <img src="/assets/img/bgPr.jpg" alt=""/>
                 <h2>
                     Готовы к сотрудничеству?
                 </h2>

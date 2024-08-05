@@ -16,5 +16,25 @@
     margin-bottom: 20px;
   }
 
+  div {
+    p {
+      margin-bottom: 16px;
+
+      ol {
+        margin: 20px 0;
+      }
+
+      span {
+        color: orange;
+        margin: 15px;
+
+        &::before {
+          content: "";
+
+        }
+      }
+    }
+  }
+
 
 }

@@ -7,7 +7,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
+  position: relative;
 
   .main {
     @include widthWithMarginCenter;
@@ -19,6 +19,15 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+
+    }
 
     h2 {
       font-size: 36px;

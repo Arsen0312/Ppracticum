@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 import cls from "./TeacherCurd.module.scss";
-import { ITeacherByIdResponse } from "../../../../../../../5Entites/teacher/types/teacherById";
-import { getDescriptionTeacher } from "../getDescriptionTeacher/getDescriptionTeacher";
 
 type TTeacherCurd = {
     id: number;
@@ -15,18 +13,6 @@ type TTeacherCurd = {
 
 const TeacherCurd = (props: TTeacherCurd) => {
     const { firstName, lastName, role, img, id } = props;
-    const [dateTeacher, setDateTeacher] = useState<ITeacherByIdResponse | undefined>(undefined);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await getDescriptionTeacher(id);
-            if (res) {
-                setDateTeacher(res);
-            }
-        };
-
-        fetchData();
-    }, [id]);
 
     return (
         <div className={cls.main}>
@@ -37,9 +23,6 @@ const TeacherCurd = (props: TTeacherCurd) => {
                 <div className={cls.wrapperDescription}>
                     <h4>{role}</h4>
                     <h2>{firstName} {lastName}</h2>
-                    <p>
-                        {dateTeacher?.description}
-                    </p>
                 </div>
             </Link>
         </div>

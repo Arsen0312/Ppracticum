@@ -11,6 +11,7 @@ const WelcomeToPracticum = () => {
     return (
         <section className={cls.main}>
             <div className={cls.overlay}/>
+            <img src="/assets/img/backgroundImgForMainPage.jpg" alt=""/>
             <div className={cls.wrapperContent}>
                 <h1>
                     Добро пожаловать в Практикум

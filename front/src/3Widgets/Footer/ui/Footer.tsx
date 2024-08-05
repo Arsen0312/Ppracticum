@@ -22,7 +22,7 @@ const Footer = () => {
     }, [dispatch]);
 
     return (
-        <footer className={cls.main}>
+        <footer className={cls.main} id="footer">
             <div className={cls.companyData}>
                 <div className={cls.wrapperCompanyDate}>
                     <div className={cls.elementCompanyDate}>

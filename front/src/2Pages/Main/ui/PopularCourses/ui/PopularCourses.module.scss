@@ -40,16 +40,6 @@
 
           }
         }
-
-        .description {
-
-          p {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: 600;
-          }
-
-        }
       }
 
       .contentRight {
@@ -62,6 +52,10 @@
         }
 
         .listExcellencies {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
           li {
             font-size: 18px;
@@ -75,6 +69,17 @@
         }
 
 
+      }
+
+    }
+
+    .description {
+      width: 50%;
+
+      p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: 600;
       }
 
     }

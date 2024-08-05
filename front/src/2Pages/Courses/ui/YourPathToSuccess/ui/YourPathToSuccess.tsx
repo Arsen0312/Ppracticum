@@ -24,6 +24,7 @@ const YourPathToSuccess = (props: TYourPathToSuccessProps) => {
     return (
         <section className={cls.wrapperMain}>
             <div className={cls.main}>
+                <img src="/assets/img/bgPr.jpg" alt=""/>
                 <h2>
                     Ваш путь к успеху начинается здесь!
                 </h2>

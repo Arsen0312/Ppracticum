@@ -30,12 +30,6 @@ const PopularCourses = () => {
                         <div className={cls.wrapperImg}>
                             <img src="/assets/img/top_courses.jpg" alt=""/>
                         </div>
-                        <div className={cls.description}>
-                            <p>
-                                Мы предлагаем обучающие курсы, которые помогут вам и вашему персоналу повысить уровень
-                                знаний и навыков в области бухгалтерии и компьютерной грамотности.
-                            </p>
-                        </div>
                     </div>
                     <div className={cls.contentRight}>
                         <ul className={cls.listExcellencies}>
@@ -52,6 +46,12 @@ const PopularCourses = () => {
                             ))}
                         </ul>
                     </div>
+                </div>
+                <div className={cls.description}>
+                    <p>
+                        Мы предлагаем обучающие курсы, которые помогут вам и вашему персоналу повысить уровень
+                        знаний и навыков в области бухгалтерии и компьютерной грамотности.
+                    </p>
                 </div>
             </section>
             <section className={cls.section2}>
