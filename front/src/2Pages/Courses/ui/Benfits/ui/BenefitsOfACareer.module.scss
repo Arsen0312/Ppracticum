@@ -17,6 +17,11 @@
     @media (max-width: 800px) {
       height: 55vh;
     }
+
+    @media (max-width: 500px) {
+      border-radius: 30%;
+    }
+
   }
 
 
@@ -47,7 +52,7 @@
         height: auto;
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 0 10px -1px rgba(0,0,0,0.75);
+        box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.75);
 
 
         h3 {

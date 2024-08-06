@@ -30,13 +30,15 @@ const WelcomeToCourses = (props: TWelcomeToCourses) => {
                     <p>{description}</p>
                     <button type="button" onClick={() => setIsModeModal(true)}>Подробнее</button>
                 </div>
+                <Modal mode={isModeModal} ref={ref}>
+                    <Feedback/>
+                </Modal>
+            </div>
+            <div className={cls.wrapperImg}>
                 <img
                     src={backgroundPerson}
                     alt="background_person"
                 />
-                <Modal mode={isModeModal} ref={ref}>
-                    <Feedback/>
-                </Modal>
             </div>
         </section>
     );

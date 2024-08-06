@@ -4,10 +4,16 @@
   width: 100%;
   background-color: $blue;
 
+  display: flex;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+
+  }
+
   .main {
-    width: calc(100% - 20px);
+    width: calc(50% - 20px);
     max-width: $max-width;
-    min-height: 100%;
     margin: 0 auto;
     height: auto;
     padding: 80px 0 0 40px;
@@ -15,6 +21,7 @@
     display: flex;
 
     @media (max-width: 700px) {
+      width: 100%;
       flex-direction: column;
       padding: 80px 40px 0 40px;
 
@@ -25,11 +32,11 @@
     }
 
     .wrapperDescriptionCourses {
-      width: 50%;
+      width: 100%;
       padding-bottom: 40px;
 
       @media (max-width: 700px) {
-        width: 100%;
+        padding-bottom: 0;
 
       }
 
@@ -53,6 +60,7 @@
         list-style: disc;
         padding-left: 15px;
         margin-top: 20px;
+
         li {
           list-style: disc;
           margin-bottom: 10px;
@@ -69,21 +77,25 @@
 
     }
 
-    img {
-      width: 50%;
-      height: auto;
-      object-fit: cover;
-
-      @media (max-width: 700px) {
-        width: 100%;
-
-      }
-    }
-
     .error {
       color: black;
     }
 
+  }
 
+  .wrapperImg {
+    width: 50%;
+
+    @media (max-width: 700px) {
+      width: 100%;
+
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+    }
   }
 }
