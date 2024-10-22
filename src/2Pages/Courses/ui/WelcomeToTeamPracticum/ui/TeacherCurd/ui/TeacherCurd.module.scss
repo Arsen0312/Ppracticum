@@ -1,0 +1,57 @@
+.main {
+  background-color: white;
+  min-width: 450px;
+  width: auto;
+  min-height: 200px;
+  height: auto;
+  border-radius: 16px;
+  padding: 20px;
+
+  a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    * {
+      color: black;
+    }
+
+    .wrapperImg {
+      width: 40%;
+      height: 100%;
+      margin-right: 20px;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+    }
+
+    .wrapperDescription {
+      width: 60%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      h4 {
+        color: black;
+        margin-bottom: 10px;
+
+      }
+
+      h2 {
+        text-align: left;
+        color: black;
+        margin-bottom: 10px;
+
+      }
+
+
+    }
+  }
+
+}

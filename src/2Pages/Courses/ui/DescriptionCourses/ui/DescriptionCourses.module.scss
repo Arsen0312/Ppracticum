@@ -1,0 +1,103 @@
+@import "../../../../../main.module.scss";
+
+.wrapperMain {
+  width: 100%;
+  background-color: $red;
+
+  * {
+    color: white;
+  }
+
+  .main {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 700px;
+    height: auto;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 800px) {
+      display: block;
+      padding: 10% 5%;
+    }
+
+
+    .leftContent {
+      width: 44.5%;
+      padding-right: 40px;
+
+      @media (max-width: 800px) {
+        width: 100%;
+        padding-right: 0;
+
+      }
+
+
+      h2 {
+        margin-bottom: 40px;
+
+      }
+
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        width: 100%;
+        margin-bottom: 40px;
+
+      }
+
+      .coursesPeriod {
+
+        p {
+          @media (max-width: 800px) {
+            display: flex;
+            gap: 5%;
+          }
+        }
+
+
+        div {
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+      }
+
+    }
+
+    hr {
+      border: 0.5px solid white;
+    }
+
+    .rightContent {
+      width: 49.5%;
+      padding-left: 40px;
+
+      @media (max-width: 800px) {
+        width: 100%;
+        padding: 40px 0 0 0;
+
+      }
+
+      h2 {
+        margin-bottom: 40px;
+
+      }
+
+      h3 {
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      p {
+        margin-bottom: 30px;
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,59 @@
+@import "../../../main.module.scss";
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  padding: 40px 0 0 0 ;
+
+  .wrapperTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .wrapperSolidLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+
+      .solidTop {
+        width: 40px;
+        height: 2px;
+        background-color: $red;
+      }
+
+      .solidBottom {
+        width: 70px;
+        height: 2px;
+        background-color: $red;
+      }
+    }
+
+    .wrapperSolidRight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .solidTop {
+        width: 40px;
+        height: 2px;
+        background-color: $red;
+      }
+
+      .solidBottom {
+        width: 70px;
+        height: 2px;
+        background-color: $red;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      color: $red;
+      margin: 0 10px;
+      font-weight: 900;
+    }
+  }
+}
